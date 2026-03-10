@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TachoCross | Регулаторно съответствие, ДДС рефунд и документи — всичко на едно място</title>
+    <title>TachoCross | Регулаторно съответствие, ДДС възстановяване и документи — всичко на едно място</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
                     colors: {
                         primary: '#003399',
                         'primary-light': '#0055A4',
-                        accent: '#f5d00c',
+                        accent: '#e6c319',
                         bg: '#F8F9FA',
                         'section-muted': '#F0F4FA',
                         surface: '#ffffff',
@@ -73,14 +73,14 @@
             <nav class="hidden md:flex space-x-6">
                 <a href="#product" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">Продукт</a>
                 <a href="#platform" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">Платформа</a>
-                <a href="#refund" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">ДДС Рефунд</a>
+                <a href="#refund" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">ДДС Възстановяване</a>
                 <a href="#how-it-works" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">Как работи</a>
                 <a href="#passport" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">Паспорт</a>
                 <a href="#accountants" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">Счетоводители</a>
                 <a href="#pricing" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">Цени</a>
             </nav>
             <div class="hidden md:flex items-center">
-                <a href="#early-access" class="bg-accent text-primary font-bold px-6 py-2.5 rounded-full hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-sm">Запази ранен достъп</a>
+                <a href="#early-access" class="btn-nav-gold text-primary font-bold px-6 py-2.5 rounded-full hover:-translate-y-0.5 transition-all duration-300 text-sm">Запази ранен достъп</a>
             </div>
             <!-- Mobile hamburger -->
             <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Меню">
@@ -95,7 +95,7 @@
         <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-3">
             <a href="#product" class="text-gray-700 font-medium py-2 border-b border-gray-50">Продукт</a>
             <a href="#platform" class="text-gray-700 font-medium py-2 border-b border-gray-50">Платформа</a>
-            <a href="#refund" class="text-gray-700 font-medium py-2 border-b border-gray-50">ДДС Рефунд</a>
+            <a href="#refund" class="text-gray-700 font-medium py-2 border-b border-gray-50">ДДС Възстановяване</a>
             <a href="#how-it-works" class="text-gray-700 font-medium py-2 border-b border-gray-50">Как работи</a>
             <a href="#passport" class="text-gray-700 font-medium py-2 border-b border-gray-50">Паспорт</a>
             <a href="#accountants" class="text-gray-700 font-medium py-2 border-b border-gray-50">Счетоводители</a>
@@ -127,24 +127,9 @@
                 </p>
 
                 <!-- Stat bar -->
-                <div class="grid grid-cols-3 gap-4 pt-2">
-                    <div class="glassmorphism rounded-xl p-4 border border-white/10 text-center">
-                        <div class="text-2xl font-black text-accent">50 000+</div>
-                        <div class="text-xs text-blue-200 mt-1">превозвачи в обхвата</div>
-                    </div>
-                    <div class="glassmorphism rounded-xl p-4 border border-white/10 text-center">
-                        <div class="text-2xl font-black text-accent">27</div>
-                        <div class="text-xs text-blue-200 mt-1">държави покрити</div>
-                    </div>
-                    <div class="glassmorphism rounded-xl p-4 border border-white/10 text-center">
-                        <div class="text-2xl font-black text-accent">8–12×</div>
-                        <div class="text-xs text-blue-200 mt-1">ROI от ДДС рефунд</div>
-                    </div>
-                </div>
-
                 <div class="flex flex-col sm:flex-row gap-4 pt-2">
                     <input type="email" placeholder="Въведете вашия имейл" class="px-6 py-4 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent flex-grow max-w-md shadow-inner text-lg">
-                    <a href="#early-access" class="bg-accent text-primary font-extrabold px-8 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(245,208,12,0.5)] hover:-translate-y-1 transition-all duration-300 text-lg flex items-center justify-center gap-2">
+                    <a href="#early-access" class="btn-hero-gold text-primary font-extrabold px-8 py-4 rounded-xl hover:-translate-y-1 transition-all duration-300 text-lg flex items-center justify-center gap-2">
                         Заяви достъп <i class="ph ph-arrow-right font-bold"></i>
                     </a>
                 </div>
@@ -187,7 +172,7 @@
                     <div class="absolute bottom-10 right-0 z-40 w-72 glassmorphism-dark rounded-2xl p-5 shadow-2xl border border-white/20 floating-card-3 backdrop-blur-xl">
                         <div class="flex justify-between items-start mb-2">
                             <div>
-                                <p class="text-xs text-gray-300 mb-1">ДДС Рефунд — 10 камиона</p>
+                                <p class="text-xs text-gray-300 mb-1">ДДС Възстановяване — 10 камиона</p>
                                 <p class="text-white font-bold text-xl">Възстановено</p>
                             </div>
                             <div class="w-8 h-8 rounded bg-gradient-to-br from-yellow-400 to-accent flex items-center justify-center shadow-lg">
@@ -229,7 +214,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
             <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Ерата на ръчните таблици приключи. <span class="text-red-500">Глобите — не.</span></h2>
-            <p class="text-xl text-gray-400">Регулациите в Европа се затягат. Всяка грешка в отчитането на работно време или чужди заплати носи пагубен риск за бизнеса ви.</p>
+            <p class="text-xl text-gray-400">Регулациите в Европа се затягат. Всяка грешка в отчитането на работно време или заплатите представлява риск за бизнеса ви.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
             <!-- Card 1 -->
@@ -240,7 +225,7 @@
                         <i class="fa-solid fa-satellite-dish text-xl text-white"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-3">Дистанционен контрол</h3>
-                    <p class="text-gray-400 text-lg max-w-md">Германската BALM вече сканира дистанционно чрез DSRC. Пътната полиция знае за грешките ви, без дори да спира камиона.</p>
+                    <p class="text-gray-400 text-lg max-w-md">Германската BALM вече сканира дистанционно чрез DSRC. Пътната полиция получава информация за всяко нарушение, без дори да спира пътното превозно средство.</p>
                 </div>
                 <div class="w-full h-1 bg-gray-700 rounded-full overflow-hidden mt-6">
                     <div id="remote-bar-fill" class="h-full bg-red-500 w-0"></div>
@@ -306,8 +291,8 @@
                 <div class="text-xs font-bold uppercase tracking-widest text-yellow-700 mb-2">Поток 2</div>
                 <h3 class="text-2xl font-extrabold text-gray-900 mb-4">Финансово възстановяване</h3>
                 <ul class="space-y-2.5 text-sm text-gray-600 mb-6">
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-yellow-600"></i> ДДС рефунд в 28 държави</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-yellow-600"></i> Акциз рефунд (BE/IT/ES/SI/HU/HR/FR)</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-yellow-600"></i> ДДС възстановяване в 28 държави</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-yellow-600"></i> Възстановяване на Акциз (BE/IT/ES/SI/HU/HR/FR)</li>
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-yellow-600"></i> Тол мониторинг и оптимизация</li>
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-yellow-600"></i> Автоматично подаване на искания</li>
                 </ul>
@@ -359,7 +344,7 @@
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900">Една платформа за целия пакет <span class="text-primary">Мобилност</span></h2>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900"><span class="text-primary">Tacho Cross</span> твоят доверен партньор за целия пакет Мобилност</h2>
             <p class="text-xl text-gray-500">Автоматизация, която спестява стотици часове администрация на месец.</p>
         </div>
         <div class="flex flex-col lg:flex-row gap-12 items-start">
@@ -492,7 +477,7 @@
 
 <!-- FINANCIAL RECOVERY -->
 <section id="refund" class="py-24 relative overflow-hidden" style="background:#001a4d">
-    <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#f5d00c_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#e6c319_1px,transparent_1px)] [background-size:24px_24px]"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
             <span class="inline-block bg-accent/20 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Поток 2 — Финансово Възстановяване</span>
@@ -502,7 +487,7 @@
         <div class="grid md:grid-cols-3 gap-6 mb-12">
             <div class="glassmorphism-dark rounded-2xl p-7 border border-white/10 hover:border-accent/30 transition-colors duration-300 scroll-reveal">
                 <div class="w-11 h-11 rounded-xl bg-accent/20 flex items-center justify-center mb-5"><i class="ph ph-currency-eur text-accent text-2xl"></i></div>
-                <h3 class="text-xl font-bold text-white mb-2">ДДС Рефунд</h3>
+                <h3 class="text-xl font-bold text-white mb-2">ДДС Възстановяване</h3>
                 <p class="text-blue-200 text-sm mb-4">Автоматично подаване на искания за ДДС в 28 държави от ЕС и извън него.</p>
                 <div class="flex flex-wrap gap-1.5">
                     <img src="https://flagcdn.com/w20/de.png" class="h-4 rounded-sm" alt="DE">
@@ -516,7 +501,7 @@
             </div>
             <div class="glassmorphism-dark rounded-2xl p-7 border border-white/10 hover:border-accent/30 transition-colors duration-300 scroll-reveal" style="transition-delay:100ms">
                 <div class="w-11 h-11 rounded-xl bg-accent/20 flex items-center justify-center mb-5"><i class="ph ph-gas-pump text-accent text-2xl"></i></div>
-                <h3 class="text-xl font-bold text-white mb-2">Акциз Рефунд</h3>
+                <h3 class="text-xl font-bold text-white mb-2">Възстановяване на Акциз</h3>
                 <p class="text-blue-200 text-sm mb-4">Възстановяване на акциз върху горивото в 7 ключови държави за превозвачи.</p>
                 <div class="flex flex-wrap gap-1.5">
                     <img src="https://flagcdn.com/w20/be.png" class="h-4 rounded-sm" alt="BE">
@@ -540,7 +525,7 @@
             <div class="space-y-4">
                 <div class="flex items-center justify-between bg-white/5 rounded-xl px-5 py-3"><span class="text-blue-200 text-sm">Абонамент Fleet Pro</span><span class="text-white font-bold font-mono">10 × 29€ = <span class="text-accent">290€/мес</span></span></div>
                 <div class="flex items-center justify-center text-gray-500 text-2xl">↓</div>
-                <div class="flex items-center justify-between bg-white/5 rounded-xl px-5 py-3"><span class="text-blue-200 text-sm">ДДС рефунд (прогнозно)</span><span class="text-green-400 font-bold font-mono">500 – 1 500€/мес</span></div>
+                <div class="flex items-center justify-between bg-white/5 rounded-xl px-5 py-3"><span class="text-blue-200 text-sm">ДДС възстановяване (прогнозно)</span><span class="text-green-400 font-bold font-mono">500 – 1 500€/мес</span></div>
                 <div class="flex items-center justify-center text-gray-500 text-2xl">↓</div>
                 <div class="flex items-center justify-between bg-accent/20 border border-accent/40 rounded-xl px-5 py-4"><span class="text-white font-bold">Нетна ROI</span><span class="text-accent font-black text-2xl">8 – 12×</span></div>
             </div>
@@ -555,7 +540,7 @@
         <div class="text-center max-w-2xl mx-auto mb-20 scroll-reveal">
             <span class="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-4 block bg-accent inline-block px-4 py-1.5 rounded-full shadow-md">Лесен процес</span>
             <h2 class="text-4xl md:text-5xl font-extrabold text-text-primary mb-6 tracking-tight">От тахографа до фиша в 3 стъпки</h2>
-            <p class="text-xl text-text-secondary mt-4">Никакъв ръчен труд. Цялата комплексност остава скрита "под капака".</p>
+            <p class="text-xl text-text-secondary mt-4">Ние се грижим за вашето спокойствие за "път без граници"</p>
         </div>
         <div class="grid md:grid-cols-3 gap-10 lg:gap-14 relative">
             <div class="hidden md:block absolute top-[40px] left-[10%] w-[80%] h-[3px] bg-gradient-to-r from-primary/10 via-primary/30 to-success/30 -z-10 rounded-full"></div>
@@ -696,7 +681,7 @@
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Напомняния и дедлайни</li>
                     <li class="flex items-center gap-2 text-gray-300"><i class="ph ph-x"></i> Чуждестранни заплати</li>
                     <li class="flex items-center gap-2 text-gray-300"><i class="ph ph-x"></i> Compliance Passport</li>
-                    <li class="flex items-center gap-2 text-gray-300"><i class="ph ph-x"></i> ДДС / акциз рефунд</li>
+                    <li class="flex items-center gap-2 text-gray-300"><i class="ph ph-x"></i> ДДС / акциз възстановяване</li>
                 </ul>
                 <a href="#early-access" class="block text-center w-full py-3 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-colors">Запиши се</a>
             </div>
@@ -713,7 +698,7 @@
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Рисково табло</li>
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Compliance Passport</li>
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> QR пътна проверка</li>
-                    <li class="flex items-center gap-2 text-blue-300"><i class="ph ph-x"></i> ДДС / акциз рефунд</li>
+                    <li class="flex items-center gap-2 text-blue-300"><i class="ph ph-x"></i> ДДС / акциз възстановяване</li>
                 </ul>
                 <a href="#early-access" class="block text-center w-full py-3 rounded-xl bg-accent text-primary font-extrabold hover:shadow-[0_0_15px_rgba(245,208,12,0.6)] transform hover:-translate-y-0.5 transition-all">Запиши се</a>
             </div>
@@ -723,11 +708,11 @@
                 <div class="mb-4"><h3 class="text-xl font-bold text-gray-900 mb-1">Fleet Pro</h3><p class="text-gray-500 text-sm">Пълното решение + финансово възстановяване.</p></div>
                 <div class="mb-1"><span class="text-4xl font-black text-gray-900">29€</span><span class="text-gray-500 text-sm">/камион/мес</span></div>
                 <div class="text-xs text-gray-400 mb-3">25€/камион при 30+ камиона</div>
-                <div class="bg-green-50 rounded-xl px-3 py-2 text-xs text-green-700 font-semibold border border-green-100 mb-5 flex items-center gap-2"><i class="ph ph-trend-up text-green-600"></i> Самоизплаща се от ДДС рефунда</div>
+                <div class="bg-green-50 rounded-xl px-3 py-2 text-xs text-green-700 font-semibold border border-green-100 mb-5 flex items-center gap-2"><i class="ph ph-trend-up text-green-600"></i> Самоизплаща се от ДДС възстановяването</div>
                 <ul class="space-y-3 mb-8 text-sm text-gray-600 flex-1">
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Всичко от Compliance</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> ДДС рефунд (28 държави)</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Акциз рефунд (7 държави)</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> ДДС възстановяване (28 държави)</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Възстановяване на Акциз  (7 държави)</li>
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Тол мониторинг</li>
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Документен Хъб + e-CMR</li>
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> ERP API интеграция</li>
@@ -746,7 +731,7 @@
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Единно управленско табло</li>
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Автоматизиран back-office</li>
                     <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> White-label опция</li>
-                    <li class="flex items-center gap-2 text-gray-300"><i class="ph ph-x"></i> ДДС / акциз рефунд</li>
+                    <li class="flex items-center gap-2 text-gray-300"><i class="ph ph-x"></i> ДДС / акциз възстановяване</li>
                 </ul>
                 <a href="#early-access" class="block text-center w-full py-3 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-colors">Свържи се с нас</a>
             </div>
@@ -829,7 +814,7 @@
                     </div>
                     <span class="font-extrabold text-white text-lg">TachoCross</span>
                 </div>
-                <p class="mb-5 leading-relaxed text-xs">Напълно автоматизирано спазване на Пакета за мобилност I, ДДС рефунд и документен хъб за модерния европейски превозвач.</p>
+                <p class="mb-5 leading-relaxed text-xs">Напълно автоматизирано спазване на Пакета за мобилност I, ДДС възстановяване и документен хъб за модерния европейски превозвач.</p>
                 <div class="flex gap-4">
                     <a href="#" class="text-gray-500 hover:text-white transition-colors text-xl"><i class="ph-fill ph-linkedin-logo"></i></a>
                     <a href="#" class="text-gray-500 hover:text-white transition-colors text-xl"><i class="ph-fill ph-twitter-logo"></i></a>
@@ -843,7 +828,7 @@
                     <li><a href="#product" class="hover:text-accent transition-colors">A1 и ERRU</a></li>
                     <li><a href="#product" class="hover:text-accent transition-colors">Рисково Табло</a></li>
                     <li><a href="#product" class="hover:text-accent transition-colors">Документен Хъб</a></li>
-                    <li><a href="#refund" class="hover:text-accent transition-colors">ДДС Рефунд</a></li>
+                    <li><a href="#refund" class="hover:text-accent transition-colors">ДДС възстановяване</a></li>
                     <li><a href="#passport" class="hover:text-accent transition-colors">Compliance Passport</a></li>
                     <li><a href="#pricing" class="hover:text-accent transition-colors">Цени</a></li>
                 </ul>

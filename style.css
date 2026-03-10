@@ -10,7 +10,7 @@ body {
 }
 
 ::selection {
-    background-color: #f5d00c;
+    background-color: #e6c319;
     color: #003399;
 }
 
@@ -222,7 +222,23 @@ body {
 }
 
 .nav-logo-text-accent {
-    color: #f5d00c;
+    color: #d4b100;
+}
+
+.btn-hero-gold {
+    background-color: #d4b100;
+}
+
+.btn-hero-gold:hover {
+    box-shadow: 0 0 20px rgba(212, 177, 0, 0.5);
+}
+
+.btn-nav-gold {
+    background-color: #e6c319;
+}
+
+.btn-nav-gold:hover {
+    box-shadow: 0 0 18px rgba(230, 195, 25, 0.55);
 }
 
 .nav-logo-icon {
