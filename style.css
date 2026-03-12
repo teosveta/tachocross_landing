@@ -1,3 +1,181 @@
+/* --- COLOR SYSTEM (CSS VARIABLES) --- */
+/*
+ * THIS IS THE SINGLE SOURCE OF TRUTH FOR ALL BRAND COLORS.
+ * Change a color here and it updates everywhere on the site.
+ *
+ * For colors used with Tailwind opacity utilities (e.g. bg-primary/50),
+ * you must update BOTH the hex value AND the matching -rgb triplet.
+ * Example: change --color-primary to #ff0000, then set --color-primary-rgb to 255 0 0
+ */
+:root {
+    /* ─── Brand Colors ─────────────────────────────────────────────── */
+    --color-primary:             #002a73;
+    --color-primary-rgb:         0 42 115;       /* keep in sync with --color-primary */
+    --color-primary-light: #00378c;
+    --color-primary-light-rgb:   0 55 140;       /* keep in sync with --color-primary-light */
+    --color-accent:              #d4a800;
+    --color-accent-rgb:          212 168 0;      /* keep in sync with --color-accent */
+
+    /* ─── Backgrounds ──────────────────────────────────────────────── */
+    --color-bg:                  #F8F9FA;
+    --color-bg-rgb:              248 249 250;    /* keep in sync with --color-bg */
+    --color-section-muted:       #F0F4FA;
+    --color-section-muted-rgb:   240 244 250;   /* keep in sync with --color-section-muted */
+    --color-surface:             #ffffff;
+    --color-surface-rgb:         255 255 255;   /* keep in sync with --color-surface */
+    --color-refund-bg:           #001e5c;
+    --color-refund-bg-rgb:       0 30 92;       /* keep in sync with --color-refund-bg */
+    --color-dark-section:        #111827;
+    --color-dark-section-rgb:    17 24 39;      /* keep in sync with --color-dark-section */
+
+    /* ─── Text ─────────────────────────────────────────────────────── */
+    --color-text-primary:        #111827;
+    --color-text-primary-rgb:    17 24 39;      /* keep in sync with --color-text-primary */
+    --color-text-secondary:      #4B5563;
+    --color-text-secondary-rgb:  75 85 99;      /* keep in sync with --color-text-secondary */
+
+    /* ─── Text on dark/navy backgrounds ────────────────────────────── */
+    --color-on-dark-muted:       #B5C4E8;       /* muted text on dark navy bg */
+    --color-on-dark-muted-rgb:   181 196 232;   /* keep in sync with --color-on-dark-muted */
+    --color-on-dark-subtle:      #8AAAD4;       /* subtle text on dark navy bg */
+    --color-on-dark-subtle-rgb:  138 170 212;   /* keep in sync with --color-on-dark-subtle */
+    --color-on-dark-faint:       #D4DCF5;       /* faint/list text on dark navy bg */
+    --color-on-dark-faint-rgb:   212 220 245;   /* keep in sync with --color-on-dark-faint */
+    --color-on-dark-sep:         #003d99;       /* separator on dark navy bg */
+    --color-on-dark-sep-rgb:     0 61 153;      /* keep in sync with --color-on-dark-sep */
+
+    /* ─── Status ───────────────────────────────────────────────────── */
+    --color-success: #026147;
+    --color-success-rgb:         2 97 71;       /* keep in sync with --color-success */
+
+    /* ─── Nav / logo specifics ─────────────────────────────────────── */
+    --color-nav-main:            #002a73;        /* "Tacho" logo text */
+    --color-nav-accent:          #c9aa00;        /* "Cross" logo text & hero button */
+
+    /* ─── Neutral palette ──────────────────────────────────────────── */
+    --color-scrollbar-thumb:       #CBD5E1;
+    --color-scrollbar-thumb-hover: #94A3B8;
+    --color-gray-200:              #E5E7EB;
+
+    /* ─── Glassmorphism surfaces ───────────────────────────────────── */
+    --color-glass-light:             rgba(255, 255, 255, 0.85);
+    --color-glass-light-border:      rgba(255, 255, 255, 0.3);
+    --color-glass-dark:              rgba(17, 24, 39, 0.6);
+    --color-glass-dark-shadow:       rgba(0, 0, 0, 0.37);
+    --color-header-bg-scrolled:      rgba(255, 255, 255, 0.95);
+    --color-header-shadow-scrolled:  rgba(0, 0, 0, 0.05);
+
+    /* ─── Tab / button shadows & borders ───────────────────────────── */
+    --color-tab-border:          rgba(148, 163, 184, 0.35);
+    --color-tab-shadow:          rgba(15, 23, 42, 0.65);
+    --color-tab-border-hover:    rgba(0, 42, 115, 0.35);
+    --color-tab-shadow-hover:    rgba(15, 23, 42, 0.75);
+    --color-card-shadow-light-1: rgba(0, 0, 0, 0.1);
+    --color-card-shadow-light-2: rgba(0, 0, 0, 0.06);
+
+    /* ─── Glow shadows ─────────────────────────────────────────────── */
+    --color-glow-shadow:         rgba(0, 42, 115, 0.3);
+    --color-success-glow-shadow: rgba(2, 97, 71, 0.3);
+
+    /* ─── Danger / problem-section (red) ───────────────────────────── */
+    --color-danger: #7d1a1a;
+    --color-danger-rgb:          125 26 26;           /* keep in sync with --color-danger */
+    --shadow-danger-icon: rgba(125, 26, 26, 0.45);
+    --shadow-danger-card: rgba(100, 16, 16, 0.2);
+
+    /* ─── Card shadows ──────────────────────────────────────────────── */
+    --shadow-card-base:           rgba(0, 0, 0, 0.08);
+    --shadow-card-hover-primary:  rgba(0, 42, 115, 0.15);
+    --shadow-card-hover-success: rgba(2, 97, 71, 0.15);
+
+    /* ─── CTA section shadows ───────────────────────────────────────── */
+    --shadow-cta-card:            rgba(0, 0, 0, 0.1);
+    --shadow-cta-card-hover:      rgba(0, 0, 0, 0.15);
+
+    /* ─── Button shadows ────────────────────────────────────────────── */
+    --shadow-primary-btn:         rgba(0, 42, 115, 0.3);
+    --shadow-primary-btn-hover:   rgba(0, 42, 115, 0.4);
+    --shadow-accent-btn-hover:    rgba(212, 168, 0, 0.6);
+
+    /* ─── Utility highlights ───────────────────────────────────────── */
+    --color-selection-bg:         var(--color-accent);
+    --color-selection-text:       var(--color-primary);
+    --color-btn-hero-gold:        var(--color-nav-accent);
+    --color-btn-nav-gold:         var(--color-accent);
+    --color-btn-hero-gold-shadow: rgba(201, 170, 0, 0.5);
+    --color-btn-nav-gold-shadow:  rgba(212, 168, 0, 0.55);
+
+    /* ─── Primary tint palette ──────────────────────────────────────── */
+    --color-primary-tint-light:      rgba(0, 42, 115, 0.06);
+    --color-primary-tint-mid:        rgba(0, 42, 115, 0.08);
+    --color-primary-border-light:    rgba(0, 42, 115, 0.15);
+    --color-primary-border:          rgba(0, 42, 115, 0.18);
+    --color-primary-light-tint:      rgba(0, 55, 140, 0.08);
+
+    /* ─── Accent tint palette ───────────────────────────────────────── */
+    --color-accent-tint-bg:          rgba(212, 168, 0, 0.10);
+    --color-accent-tint-badge:       rgba(212, 168, 0, 0.18);
+    --color-accent-border-light:     rgba(212, 168, 0, 0.22);
+    --color-accent-border:           rgba(212, 168, 0, 0.25);
+
+    /* ─── Success tint palette ──────────────────────────────────────── */
+    --color-success-light:           #3db88a;
+    --color-success-deep:            #014d39;
+    --color-success-tint-bg:         rgba(2, 97, 71, 0.07);
+    --color-success-tint-badge:      rgba(2, 97, 71, 0.12);
+    --color-success-border-light:    rgba(2, 97, 71, 0.15);
+    --color-success-border:          rgba(2, 97, 71, 0.20);
+    --color-success-border-card:     rgba(2, 97, 71, 0.18);
+    --color-success-border-strong:   rgba(2, 97, 71, 0.30);
+
+    /* ─── Danger tint palette ───────────────────────────────────────── */
+    --color-danger-deep:             #5a1010;
+    --color-danger-tint-bg:          rgba(125, 26, 26, 0.08);
+    --color-danger-border:           rgba(125, 26, 26, 0.20);
+
+    /* ─── Hero / SEH overlays ───────────────────────────────────────── */
+    --color-cream-bg:                #FAF7F2;
+    --color-overlay-bg:              rgba(0, 0, 0, 0.40);
+    --color-overlay-video:           rgba(0, 0, 0, 0.35);
+    --color-media-shadow:            rgba(0, 0, 0, 0.45);
+    --color-hero-nav-text:           rgba(255, 255, 255, 0.88);
+    --color-hero-nav-hover-bg:       rgba(255, 255, 255, 0.10);
+
+    /* ─── Canvas / particle effects ─────────────────────────────────── */
+    --color-canvas-particle:         rgba(255, 255, 255, 0.38);
+    --color-canvas-connection-rgb:   148, 163, 184;
+
+    /* ─── Glassmorphism on dark (regulatory section cards) ──────────── */
+    --color-glass-on-dark-bg:            rgba(255, 255, 255, 0.07);
+    --color-glass-on-dark-border:        rgba(255, 255, 255, 0.12);
+    --color-glass-on-dark-border-subtle: rgba(255, 255, 255, 0.15);
+    --color-glass-on-dark-icon-bg:       rgba(255, 255, 255, 0.12);
+    --color-glass-on-dark-icon-border:   rgba(255, 255, 255, 0.20);
+    --color-glass-on-dark-track:         rgba(255, 255, 255, 0.10);
+
+    /* ─── Section-specific backgrounds ──────────────────────────────── */
+    --color-regulatory-bg: #748AB2;
+    --color-regulatory-card-overlay: linear-gradient(to top, var(--color-refund-bg) 0%, transparent 60%);
+}
+
+/* --- REGULATORY SECTION — scoped overrides for #748AB2 background --- */
+/* The section bg is a midpoint between #002a73 and the FOR ACCOUNTANTS light tint.   *
+ * Glass surfaces need higher opacity, and muted/faint text shifts to near-white       *
+ * so it stays legible on this medium-blue background.                                 */
+#why-us {
+    /* Glass surfaces: increase white opacity to stay visible */
+    --color-glass-on-dark-bg:              rgba(255, 255, 255, 0.22);
+    --color-glass-on-dark-border:          rgba(255, 255, 255, 0.38);
+    --color-glass-on-dark-border-subtle:   rgba(255, 255, 255, 0.44);
+    --color-glass-on-dark-icon-bg:         rgba(255, 255, 255, 0.28);
+    --color-glass-on-dark-icon-border:     rgba(255, 255, 255, 0.48);
+    --color-glass-on-dark-track:           rgba(255, 255, 255, 0.26);
+
+    /* Muted / faint text: shift to near-white for contrast on medium blue */
+    --color-on-dark-muted-rgb:             255 255 255;   /* was #B5C4E8 */
+    --color-on-dark-faint-rgb:             228 238 255;   /* was #D4DCF5 */
+}
+
 /* --- BASE & RESETS --- */
 html {
     scroll-behavior: smooth;
@@ -10,28 +188,28 @@ body {
 }
 
 ::selection {
-    background-color: #e6c319;
-    color: #003399;
+    background-color: var(--color-selection-bg);
+    color: var(--color-selection-text);
 }
 
 /* --- GLASSMORPHISM --- */
 .glassmorphism {
-    background: rgba(255, 255, 255, 0.7);
+    background: var(--color-glass-light);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid var(--color-glass-light-border);
 }
 
 .glassmorphism-dark {
-    background: rgba(17, 24, 39, 0.6); /* Tailwind gray-900 with opacity */
+    background: var(--color-glass-dark); /* Tailwind gray-900 with opacity */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-shadow: 0 8px 32px 0 var(--color-glass-dark-shadow);
 }
 
 .scrolled-header {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    background: var(--color-header-bg-scrolled);
+    box-shadow: 0 4px 30px var(--color-header-shadow-scrolled);
 }
 
 /* --- ANIMATIONS & KEYFRAMES --- */
@@ -143,17 +321,17 @@ body {
 .tab-btn {
     position: relative;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(148, 163, 184, 0.35); /* slate-300 */
-    box-shadow: 0 10px 25px -18px rgba(15, 23, 42, 0.65); /* subtle base shadow */
+    background-color: var(--color-glass-light);
+    border: 1px solid var(--color-tab-border); /* slate-300 */
+    box-shadow: 0 10px 25px -18px var(--color-tab-shadow); /* subtle base shadow */
     transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .tab-btn:hover {
     transform: translateY(-4px);
-    background-color: #ffffff;
-    border-color: rgba(0, 51, 153, 0.35); /* primary with opacity */
-    box-shadow: 0 20px 45px -20px rgba(15, 23, 42, 0.75);
+    background-color: var(--color-surface);
+    border-color: var(--color-tab-border-hover); /* primary with opacity */
+    box-shadow: 0 20px 45px -20px var(--color-tab-shadow-hover);
 }
 
 .tab-btn::before {
@@ -163,7 +341,7 @@ body {
     top: 0;
     height: 100%;
     width: 4px;
-    background-color: #003399; /* Primary */
+    background-color: var(--color-primary); /* Primary */
     transform: scaleY(0);
     transform-origin: center;
     transition: transform 0.3s ease;
@@ -171,9 +349,10 @@ body {
 }
 
 .tab-btn.active {
-    background-color: white;
-    border-color: #E5E7EB; /* Tailwind gray-200 */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: var(--color-surface);
+    border-color: var(--color-gray-200); /* Tailwind gray-200 */
+    box-shadow: 0 4px 6px -1px var(--color-card-shadow-light-1),
+                0 2px 4px -1px var(--color-card-shadow-light-2);
 }
 
 .tab-btn.active::before {
@@ -200,16 +379,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #F8F9FA; 
+    background: var(--color-bg); 
 }
  
 ::-webkit-scrollbar-thumb {
-    background: #CBD5E1; 
+    background: var(--color-scrollbar-thumb); 
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #94A3B8; 
+    background: var(--color-scrollbar-thumb-hover); 
 }
 
 /* --- HEADER LOGO --- */
@@ -218,33 +397,334 @@ body {
 }
 
 .nav-logo-text-main {
-    color: #001f5c;
+    color: var(--color-nav-main);
 }
 
 .nav-logo-text-accent {
-    color: #d4b100;
+    color: var(--color-nav-accent);
 }
 
 .btn-hero-gold {
-    background-color: #d4b100;
+    background-color: var(--color-btn-hero-gold);
 }
 
 .btn-hero-gold:hover {
-    box-shadow: 0 0 20px rgba(212, 177, 0, 0.5);
+    box-shadow: 0 0 20px var(--color-btn-hero-gold-shadow);
 }
 
 .btn-nav-gold {
-    background-color: #e6c319;
+    background-color: var(--color-btn-nav-gold);
 }
 
 .btn-nav-gold:hover {
-    box-shadow: 0 0 18px rgba(230, 195, 25, 0.55);
+    box-shadow: 0 0 18px var(--color-btn-nav-gold-shadow);
 }
 
 .nav-logo-icon {
-    color: #003399;
+    color: var(--color-primary);
 }
 
 #header.scrolled-header .nav-logo-icon {
-    color: #003399;
+    color: var(--color-primary);
 }
+
+/* --- INLINE STYLES MOVED FROM HTML --- */
+
+/* Initial header offset below announcement bar */
+#header {
+    top: 32px;
+}
+
+/* Utility delays for scroll/animation effects */
+.delay-100 {
+    transition-delay: 100ms;
+    animation-delay: 100ms;
+}
+
+.delay-150 {
+    transition-delay: 150ms;
+    animation-delay: 150ms;
+}
+
+.delay-200 {
+    transition-delay: 200ms;
+    animation-delay: 200ms;
+}
+
+.delay-300 {
+    transition-delay: 300ms;
+    animation-delay: 300ms;
+}
+
+/* Fixed width progress fills */
+.fill-87 {
+    width: 87%;
+}
+
+/* Refund section background */
+#refund {
+    background: var(--color-refund-bg);
+}
+
+/* --- HEADER: transparent hero state --- */
+/* Active while the scroll-expand animation plays and until the user scrolls past 50px */
+#header.header-hero.glassmorphism {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom-color: transparent;
+    box-shadow: none;
+}
+
+/* Nav links → white */
+#header.header-hero nav a {
+    color: var(--color-hero-nav-text);
+}
+#header.header-hero nav a:hover {
+    color: white;
+}
+
+/* CTA button → hidden */
+#header.header-hero #header-cta {
+    display: none;
+}
+
+/* Mobile hamburger lines → white */
+#header.header-hero #mobile-menu-btn span {
+    background-color: var(--color-hero-nav-text);
+}
+#header.header-hero #mobile-menu-btn:hover {
+    background-color: var(--color-hero-nav-hover-bg);
+}
+
+/* =================================================================
+   SCROLL EXPAND HERO  (prefix: seh-)
+================================================================= */
+
+.seh-wrapper {
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Full-viewport animation area — clips expanding media */
+.seh-viewport {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100dvh + 18rem);
+    overflow: hidden;
+}
+
+/* Background image */
+.seh-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.seh-bg__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.seh-bg__overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--color-overlay-bg);
+}
+
+/* Expanding media: starts small, JS drives width/height */
+.seh-media {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 60px var(--color-media-shadow);
+    z-index: 1;
+    width: 300px;
+    height: 400px;
+    transition: border-radius 0.4s ease;
+}
+
+.seh-media.fully-expanded {
+    border-radius: 0;
+}
+
+.seh-media__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Direct video element — object-fit: cover fills any container shape, no black bars */
+.seh-media__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+}
+
+.seh-media__overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--color-overlay-video);
+    pointer-events: none;
+}
+
+/* Title row — absolutely centred in the visible viewport (100dvh) */
+.seh-title-row {
+    position: absolute;
+    top: 50dvh;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+    mix-blend-mode: difference;
+    pointer-events: none;
+    user-select: none;
+}
+
+.seh-title {
+    display: inline-block;
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    font-weight: 900;
+    color: white;
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+/* Subtitle & scroll hint — directly below the video clip (initial height 400px, centred at 50dvh) */
+.seh-hints {
+    position: absolute;
+    top: calc(50dvh + 200px + 0.5cm);
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5cm;
+    pointer-events: none;
+    user-select: none;
+}
+
+.seh-hints__label {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.seh-hints__hint {
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin: 0;
+    opacity: 0.7;
+}
+
+.seh-hints__hint-arrow {
+    display: inline-block;
+    animation: seh-bob 2s ease-in-out infinite;
+}
+
+@keyframes seh-bob {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(7px); }
+}
+
+/* Cream background for the entire hero section (viewport + content) */
+.seh-bg-cream {
+    background: var(--color-cream-bg);
+}
+
+/* Hero content — now empty, kept only for JS scroll-unlock logic */
+.seh-content {
+    opacity: 0;
+    pointer-events: none;
+    height: 0;
+    overflow: hidden;
+}
+.seh-content.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Full-width text block: appears below the video when fully expanded */
+.seh-bottom-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(82dvh + 1cm);
+    z-index: 20;
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    pointer-events: none;
+}
+/* Inner text block: starts around 25% from left, spans to 80% */
+.seh-bottom-text__inner {
+    margin-left: 25%;
+    max-width: 55%;
+    padding-top: 0.75rem;
+}
+.seh-bottom-text.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+.seh-bottom-text__label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    opacity: 0.7;
+}
+.seh-bottom-text__heading {
+    font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+    font-weight: 900;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+    padding-top: 0.6rem;
+    border-top: 2px solid var(--color-primary);
+}
+.seh-bottom-text__body {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0 0 0.65rem;
+}
+.seh-bottom-text__body--accent {
+    color: var(--color-text-primary);
+    font-style: italic;
+    font-weight: 500;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 0.75rem;
+    margin-top: 0.4rem;
+}
+
+.seh-content.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+

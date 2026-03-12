@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled-header', 'border-gray-200');
-            header.classList.remove('border-transparent');
+            header.classList.remove('border-transparent', 'header-hero');
         } else {
             header.classList.remove('scrolled-header', 'border-gray-200');
-            header.classList.add('border-transparent');
+            header.classList.add('border-transparent', 'header-hero');
         }
     });
 
@@ -169,6 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (heroSection && heroCanvas && heroCanvas.getContext) {
         const ctx = heroCanvas.getContext('2d');
+        const rootStyles = getComputedStyle(document.documentElement);
+        const canvasParticleColor = rootStyles.getPropertyValue('--color-canvas-particle').trim();
+        const canvasConnectionRgb = rootStyles.getPropertyValue('--color-canvas-connection-rgb').trim();
         let width = 0;
         let height = 0;
         let particles = [];
@@ -211,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.38)'; // soft, visible on dark blue
+                ctx.fillStyle = canvasParticleColor;
                 ctx.fill();
             }
         }
@@ -226,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (dist < maxDistance) {
                         const alpha = 1 - dist / maxDistance;
-                        ctx.strokeStyle = `rgba(148, 163, 184, ${alpha * 0.22})`; // slate/blue-gray
+                        ctx.strokeStyle = `rgba(${canvasConnectionRgb}, ${alpha * 0.22})`;
                         ctx.lineWidth = 0.8;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
@@ -260,5 +263,197 @@ document.addEventListener('DOMContentLoaded', () => {
             resizeTimeout = setTimeout(resizeCanvas, 200);
         });
     }
+
+    /* --- 7. FINANCIAL RECOVERY PARTICLE BACKGROUND (Canvas) --- */
+    const refundSection = document.getElementById('refund');
+    const refundCanvas  = document.getElementById('refund-particles');
+
+    if (refundSection && refundCanvas && refundCanvas.getContext) {
+        const rCtx = refundCanvas.getContext('2d');
+        const rootStyles2 = getComputedStyle(document.documentElement);
+        const refundParticleColor     = rootStyles2.getPropertyValue('--color-canvas-particle').trim();
+        const refundConnectionRgb     = rootStyles2.getPropertyValue('--color-canvas-connection-rgb').trim();
+        let rWidth = 0, rHeight = 0;
+        let rParticles = [];
+        const R_BASE_DENSITY = 120;
+
+        function resizeRefundCanvas() {
+            rWidth  = refundSection.offsetWidth;
+            rHeight = refundSection.offsetHeight;
+            refundCanvas.width  = rWidth;
+            refundCanvas.height = rHeight;
+            const area = rWidth * rHeight;
+            const targetCount = Math.max(40, Math.floor(area / 20000));
+            rParticles = [];
+            for (let i = 0; i < Math.min(targetCount, R_BASE_DENSITY); i++) {
+                rParticles.push(new RefundParticle());
+            }
+        }
+
+        class RefundParticle {
+            constructor() {
+                this.x  = Math.random() * rWidth;
+                this.y  = Math.random() * rHeight;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.radius = Math.random() * 1.5 + 0.6;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > rWidth)  this.vx = -this.vx;
+                if (this.y < 0 || this.y > rHeight) this.vy = -this.vy;
+            }
+            draw() {
+                rCtx.beginPath();
+                rCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                rCtx.fillStyle = refundParticleColor;
+                rCtx.fill();
+            }
+        }
+
+        function drawRefundConnections() {
+            const maxDistance = 140;
+            for (let i = 0; i < rParticles.length; i++) {
+                for (let j = i + 1; j < rParticles.length; j++) {
+                    const dx   = rParticles[i].x - rParticles[j].x;
+                    const dy   = rParticles[i].y - rParticles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < maxDistance) {
+                        const alpha = 1 - dist / maxDistance;
+                        rCtx.strokeStyle = `rgba(${refundConnectionRgb}, ${alpha * 0.22})`;
+                        rCtx.lineWidth = 0.8;
+                        rCtx.beginPath();
+                        rCtx.moveTo(rParticles[i].x, rParticles[i].y);
+                        rCtx.lineTo(rParticles[j].x, rParticles[j].y);
+                        rCtx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animateRefund() {
+            rCtx.clearRect(0, 0, rWidth, rHeight);
+            rParticles.forEach(p => { p.update(); p.draw(); });
+            drawRefundConnections();
+            requestAnimationFrame(animateRefund);
+        }
+
+        resizeRefundCanvas();
+        animateRefund();
+
+        let refundResizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(refundResizeTimeout);
+            refundResizeTimeout = setTimeout(resizeRefundCanvas, 200);
+        });
+    }
+
+    /* --- 8. SCROLL EXPAND HERO --- */
+    (function () {
+        const bgEl        = document.getElementById('seh-bg');
+        const mediaEl     = document.getElementById('seh-media');
+        const overlayEl   = document.getElementById('seh-media-overlay');
+        const titleL      = document.getElementById('seh-title-l');
+        const titleR      = document.getElementById('seh-title-r');
+        const labelEl     = document.getElementById('seh-label');
+        const hintEl      = document.getElementById('seh-hint');
+        const contentEl   = document.getElementById('seh-content');
+        const bottomText  = document.getElementById('seh-bottom-text');
+        const header      = document.getElementById('header');
+
+        if (!bgEl || !mediaEl) return; // guard: only run if hero exists
+
+        let progress    = 0;      // 0 → 1
+        let expanded    = false;  // true once progress reaches 1
+        let touchStartY = 0;
+        let isMobile    = window.innerWidth < 768;
+
+
+        function render() {
+            const vh = window.innerHeight;
+            const mw = 300 + progress * (window.innerWidth - 300);
+            const mh = 400 + progress * (vh * 0.82 - 400);
+
+            // Interpolate top: starts centered, ends at top of viewport (nav overlaps via z-index)
+            const startTop = (vh - 400) / 2;
+            const topPx    = startTop * (1 - progress);
+
+            const tx = progress * (isMobile ? 180 : 150); // vw units
+
+            bgEl.style.opacity       = String(1 - progress);
+            mediaEl.style.width      = mw + 'px';
+            mediaEl.style.height     = mh + 'px';
+            mediaEl.style.top        = topPx + 'px';
+            mediaEl.style.transform  = 'translate(-50%, 0)';
+            overlayEl.style.opacity  = String(Math.max(0, 0.5 - progress * 0.3));
+            mediaEl.classList.toggle('fully-expanded', progress >= 0.98);
+
+            titleL.style.transform = 'translateX(-' + tx + 'vw)';
+            titleR.style.transform = 'translateX('  + tx + 'vw)';
+            if (labelEl) labelEl.style.transform = 'translateX(-' + tx + 'vw)';
+            if (hintEl)  hintEl.style.transform  = 'translateX('  + tx + 'vw)';
+
+            const show = expanded;
+            contentEl.classList.toggle('visible', show);
+            contentEl.setAttribute('aria-hidden', show ? 'false' : 'true');
+            if (bottomText) {
+                bottomText.classList.toggle('visible', show);
+                bottomText.setAttribute('aria-hidden', show ? 'false' : 'true');
+            }
+        }
+
+        function advance(delta) {
+            progress = Math.min(Math.max(progress + delta, 0), 1);
+            if (progress >= 1) expanded = true;
+            render();
+        }
+
+        function onWheel(e) {
+            if (expanded && e.deltaY < 0 && window.scrollY <= 5) {
+                expanded = false;
+                e.preventDefault();
+            } else if (!expanded) {
+                e.preventDefault();
+                advance(e.deltaY * 0.0009);
+            }
+        }
+
+        function onTouchStart(e) {
+            touchStartY = e.touches[0].clientY;
+        }
+
+        function onTouchMove(e) {
+            if (!touchStartY) return;
+            const dy = touchStartY - e.touches[0].clientY;
+            if (expanded && dy < -20 && window.scrollY <= 5) {
+                expanded = false;
+                e.preventDefault();
+            } else if (!expanded) {
+                e.preventDefault();
+                const factor = dy < 0 ? 0.008 : 0.005;
+                advance(dy * factor);
+                touchStartY = e.touches[0].clientY;
+            }
+        }
+
+        function onTouchEnd() { touchStartY = 0; }
+
+        function onScroll() {
+            if (!expanded) window.scrollTo(0, 0);
+        }
+
+        window.addEventListener('wheel',      onWheel,      { passive: false });
+        window.addEventListener('scroll',     onScroll,     { passive: true  });
+        window.addEventListener('touchstart', onTouchStart, { passive: false });
+        window.addEventListener('touchmove',  onTouchMove,  { passive: false });
+        window.addEventListener('touchend',   onTouchEnd);
+        window.addEventListener('resize',     function () {
+            isMobile = window.innerWidth < 768;
+            render();
+        });
+
+        render(); // set initial state
+    })();
 
 });

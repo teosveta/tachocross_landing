@@ -15,19 +15,27 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#003399',
-                        'primary-light': '#0055A4',
-                        accent: '#e6c319',
-                        bg: '#F8F9FA',
-                        'section-muted': '#F0F4FA',
-                        surface: '#ffffff',
-                        'text-primary': '#111827',
-                        'text-secondary': '#4B5563',
-                        success: '#059669',
+                        /* All values reference CSS variables defined in style.css :root */
+                        primary:          'rgb(var(--color-primary-rgb) / <alpha-value>)',
+                        'primary-light':  'rgb(var(--color-primary-light-rgb) / <alpha-value>)',
+                        accent:           'rgb(var(--color-accent-rgb) / <alpha-value>)',
+                        bg:               'rgb(var(--color-bg-rgb) / <alpha-value>)',
+                        'section-muted':  'rgb(var(--color-section-muted-rgb) / <alpha-value>)',
+                        surface:          'rgb(var(--color-surface-rgb) / <alpha-value>)',
+                        'text-primary':   'rgb(var(--color-text-primary-rgb) / <alpha-value>)',
+                        'text-secondary': 'rgb(var(--color-text-secondary-rgb) / <alpha-value>)',
+                        success:          'rgb(var(--color-success-rgb) / <alpha-value>)',
+                        'refund-bg':      'rgb(var(--color-refund-bg-rgb) / <alpha-value>)',
+                        danger:           'rgb(var(--color-danger-rgb) / <alpha-value>)',
+                        'dark-section':   'rgb(var(--color-dark-section-rgb) / <alpha-value>)',
+                        'on-dark-muted':  'rgb(var(--color-on-dark-muted-rgb) / <alpha-value>)',
+                        'on-dark-subtle': 'rgb(var(--color-on-dark-subtle-rgb) / <alpha-value>)',
+                        'on-dark-faint':  'rgb(var(--color-on-dark-faint-rgb) / <alpha-value>)',
+                        'on-dark-sep':    'rgb(var(--color-on-dark-sep-rgb) / <alpha-value>)',
                     },
                     boxShadow: {
-                        'glow': '0 0 20px rgba(0, 51, 153, 0.3)',
-                        'success-glow': '0 0 20px rgba(5, 150, 105, 0.3)',
+                        'glow':         '0 0 20px var(--color-glow-shadow)',
+                        'success-glow': '0 0 20px var(--color-success-glow-shadow)',
                     },
                     animation: {
                         'fade-in': 'fadeIn 0.5s ease-out forwards',
@@ -52,16 +60,16 @@
 <body class="font-sans bg-bg text-gray-800 antialiased overflow-x-hidden selection:bg-accent selection:text-primary">
 
 <!-- ANNOUNCEMENT BAR -->
-<div class="w-full bg-[#001a4d] text-blue-200 text-xs py-2 px-4 flex flex-wrap items-center justify-center gap-4 border-b border-blue-900/60">
+<div class="w-full bg-refund-bg text-on-dark-muted text-xs py-2 px-4 flex flex-wrap items-center justify-center gap-4 border-b border-primary/60">
     <span class="flex items-center gap-1.5"><i class="ph ph-scales text-accent"></i> EU Regulation 2020/1054 &bull; Directive 2020/1057 &bull; IMI RTPD API</span>
-    <span class="hidden sm:inline text-blue-700">|</span>
+    <span class="hidden sm:inline text-on-dark-sep">|</span>
     <span class="flex items-center gap-1.5"><i class="ph ph-shield-check text-accent"></i> GDPR съответствие &bull; Данните се обработват в ЕС</span>
-    <span class="hidden sm:inline text-blue-700">|</span>
+    <span class="hidden sm:inline text-on-dark-sep">|</span>
     <span class="flex items-center gap-1.5"><img src="https://flagcdn.com/w20/eu.png" alt="EU" class="rounded-sm h-3"> Разработено в ЕС</span>
 </div>
 
 <!-- STICKY HEADER -->
-<header class="fixed w-full top-0 z-50 glassmorphism transition-all duration-300 border-b border-transparent" id="header" style="top:32px">
+<header class="fixed w-full top-0 z-50 glassmorphism header-hero transition-all duration-300 border-b border-transparent" id="header">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-18 py-3">
             <a href="#hero" class="flex-shrink-0 flex items-center gap-3 cursor-pointer group nav-logo">
@@ -75,11 +83,10 @@
                 <a href="#platform" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">Платформа</a>
                 <a href="#refund" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">ДДС Възстановяване</a>
                 <a href="#how-it-works" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">Как работи</a>
-                <a href="#passport" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">Паспорт</a>
                 <a href="#accountants" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">Счетоводители</a>
                 <a href="#pricing" class="text-gray-600 hover:text-primary font-medium transition-colors text-sm">Цени</a>
             </nav>
-            <div class="hidden md:flex items-center">
+            <div id="header-cta" class="hidden md:flex items-center">
                 <a href="#early-access" class="btn-nav-gold text-primary font-bold px-6 py-2.5 rounded-full hover:-translate-y-0.5 transition-all duration-300 text-sm">Запази ранен достъп</a>
             </div>
             <!-- Mobile hamburger -->
@@ -97,7 +104,6 @@
             <a href="#platform" class="text-gray-700 font-medium py-2 border-b border-gray-50">Платформа</a>
             <a href="#refund" class="text-gray-700 font-medium py-2 border-b border-gray-50">ДДС Възстановяване</a>
             <a href="#how-it-works" class="text-gray-700 font-medium py-2 border-b border-gray-50">Как работи</a>
-            <a href="#passport" class="text-gray-700 font-medium py-2 border-b border-gray-50">Паспорт</a>
             <a href="#accountants" class="text-gray-700 font-medium py-2 border-b border-gray-50">Счетоводители</a>
             <a href="#pricing" class="text-gray-700 font-medium py-2 border-b border-gray-50">Цени</a>
             <a href="#early-access" class="mt-2 bg-accent text-primary font-bold px-6 py-3 rounded-full text-center">Запази ранен достъп</a>
@@ -105,233 +111,94 @@
     </div>
 </header>
 
-<!-- HERO SECTION -->
-<section id="hero" class="relative pt-48 pb-20 lg:pt-56 lg:pb-32 overflow-hidden bg-[#001a4d]">
-    <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[70%] rounded-full bg-primary-light/30 blur-3xl mix-blend-screen floating-slow"></div>
-        <div class="absolute top-[20%] -right-[10%] w-[40%] h-[60%] rounded-full bg-accent/20 blur-[100px] mix-blend-screen floating-fast"></div>
-    </div>
-    <canvas id="hero-particles" class="pointer-events-none absolute inset-0 w-full h-full z-[1]"></canvas>
+<!-- SCROLL EXPAND HERO -->
+<section id="hero" class="seh-wrapper seh-bg-cream">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-            <div class="text-white space-y-8 animate-fade-in-up">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glassmorphism text-sm font-medium border border-white/10">
-                    <span>🚀</span> Присъединете се към Waitlist-а за 2026
-                </div>
-                <h1 class="text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-md">
-                    От тахографа до фиша — <span class="bg-clip-text text-transparent bg-gradient-to-r from-accent to-yellow-200">всичко на едно място.</span>
-                </h1>
-                <p class="text-lg lg:text-xl text-blue-100 font-medium leading-relaxed max-w-xl">
-                    Регулаторно съответствие, финансово възстановяване на ДДС и акциз, и пълен документен хъб — три потока, една платформа за международните превозвачи в Източна Европа.
-                </p>
+    <!-- ANIMATION VIEWPORT (full screen, scroll-locked during animation) -->
+    <div class="seh-viewport" id="seh-viewport">
 
-                <!-- Stat bar -->
-                <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                    <input type="email" placeholder="Въведете вашия имейл" class="px-6 py-4 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent flex-grow max-w-md shadow-inner text-lg">
-                    <a href="#early-access" class="btn-hero-gold text-primary font-extrabold px-8 py-4 rounded-xl hover:-translate-y-1 transition-all duration-300 text-lg flex items-center justify-center gap-2">
-                        Заяви достъп <i class="ph ph-arrow-right font-bold"></i>
-                    </a>
-                </div>
-                <p class="text-sm text-blue-200 opacity-80"><i class="ph ph-check-circle"></i> Без обвързване. Отказ по всяко време.</p>
-            </div>
+        <!-- Background image: fades out as scroll advances -->
+        <div class="seh-bg" id="seh-bg" aria-hidden="true">
+            <img src="https://www.wilmarinc.com/hubfs/AdobeStock_627614157-1.jpeg"
+                 alt=""
+                 class="seh-bg__img"
+                 loading="eager">
+            <div class="seh-bg__overlay"></div>
+        </div>
 
-            <!-- Right Column Floating Cards -->
-            <div class="relative h-[500px] hidden lg:block perspective-container">
-                <div class="absolute inset-0">
-                    <div class="absolute top-10 right-10 z-30 w-72 glassmorphism-dark rounded-2xl p-5 shadow-2xl border border-white/20 floating-card-1">
-                        <div class="flex items-center gap-4 mb-3">
-                            <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
-                                <i class="ph-fill ph-check-circle text-green-400 text-2xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-gray-300 font-medium uppercase tracking-wider">Compliance Score</p>
-                                <p class="text-white font-bold text-lg">87/100 🟢</p>
-                            </div>
-                        </div>
-                        <div class="w-full bg-white/10 rounded-full h-2">
-                            <div class="bg-green-400 h-2 rounded-full" style="width:87%"></div>
-                        </div>
-                    </div>
-                    <div class="absolute top-40 left-0 z-20 w-80 glassmorphism-dark rounded-2xl p-5 shadow-2xl border border-white/20 floating-card-2">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-white font-semibold flex items-center gap-2"><i class="ph ph-file-text text-accent"></i> IMI Декларации</h3>
-                            <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-md border border-green-500/30">Активна</span>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center text-sm border-b border-white/10 pb-2">
-                                <span class="text-gray-300 flex items-center gap-2"><img src="https://flagcdn.com/w20/fr.png" alt="France" class="rounded-sm"> Франция</span>
-                                <span class="text-white font-medium">Подадена ✅</span>
-                            </div>
-                            <div class="flex justify-between items-center text-sm">
-                                <span class="text-gray-300 flex items-center gap-2"><img src="https://flagcdn.com/w20/de.png" alt="Germany" class="rounded-sm"> Германия</span>
-                                <span class="text-white font-medium">Подадена ✅</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute bottom-10 right-0 z-40 w-72 glassmorphism-dark rounded-2xl p-5 shadow-2xl border border-white/20 floating-card-3 backdrop-blur-xl">
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <p class="text-xs text-gray-300 mb-1">ДДС Възстановяване — 10 камиона</p>
-                                <p class="text-white font-bold text-xl">Възстановено</p>
-                            </div>
-                            <div class="w-8 h-8 rounded bg-gradient-to-br from-yellow-400 to-accent flex items-center justify-center shadow-lg">
-                                <i class="ph ph-currency-eur text-primary"></i>
-                            </div>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-white/10 flex justify-between items-end">
-                            <div>
-                                <span class="text-3xl font-black text-accent drop-shadow-md">1 240</span>
-                                <span class="text-gray-400 text-sm">€/мес</span>
-                            </div>
-                            <div class="flex items-center gap-1 text-green-400 text-sm font-medium">
-                                <i class="ph ph-trend-up"></i> ROI 10×
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Expanding media element: starts small, expands to fill screen -->
+        <div class="seh-media" id="seh-media" aria-hidden="true">
+            <video
+                class="seh-media__video"
+                src="https://res.cloudinary.com/di9tnlrga/video/upload/unknown_2026.03.12-00.57_a1ts8x.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+            ></video>
+            <div class="seh-media__overlay" id="seh-media-overlay"></div>
+        </div>
+
+        <!-- Brand title: words diverge left/right as scroll advances -->
+        <div class="seh-title-row" aria-hidden="true">
+            <span class="seh-title" id="seh-title-l">Tacho</span>
+            <span class="seh-title" id="seh-title-r">Cross</span>
+        </div>
+
+        <!-- Subtitle & scroll hint -->
+        <div class="seh-hints" id="seh-hints">
+            <p class="seh-hints__label" id="seh-label">Платформа за Международни Превозвачи</p>
+            <p class="seh-hints__hint" id="seh-hint">
+                <span class="seh-hints__hint-arrow">↓</span> Прелисти за повече
+            </p>
+        </div>
+
+        <!-- Text: revealed when video is fully expanded, below the clip -->
+        <div class="seh-bottom-text" id="seh-bottom-text" aria-hidden="true">
+            <div class="seh-bottom-text__inner">
+                <span class="seh-bottom-text__label">Нашата история</span>
+                <h2 class="seh-bottom-text__heading">Ние разбираме пътя.</h2>
+                <p class="seh-bottom-text__body">Зад TachoCross стоят хора, израснали в транспортния бизнес. Знаем колко тежи една ревизия, колко часове се губят в таблици и колко нерви струва един непредаден документ.</p>
+                <p class="seh-bottom-text__body">Затова създадохме платформата, която искахме да имаме — за да се занимавате с шофьорите, клиентите и маршрутите, не с бюрократиката.</p>
+                <p class="seh-bottom-text__body seh-bottom-text__body--accent">Вярваме, че всеки превозвач — независимо от размера на флота — заслужава достъп до инструментите, с които работят само най-големите.</p>
             </div>
         </div>
-    </div>
+
+    </div><!-- /seh-viewport -->
+
+    <!-- kept for JS expanded-state scroll unlock; empty -->
+    <div class="seh-content" id="seh-content" aria-hidden="true"></div>
+
 </section>
 
-<!-- SOCIAL PROOF BAR -->
-<section class="py-8 bg-white border-y border-gray-100">
+<!-- TRUST BAR -->
+<section class="py-10 bg-white border-y border-gray-100 scroll-reveal">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-center text-sm font-semibold text-gray-500 uppercase tracking-widest mb-6">Интегрира се безпроблемно с вашите настоящи системи:</p>
-        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            <div class="flex items-center gap-2 text-xl font-bold font-sans tracking-tight text-gray-800"><i class="ph-fill ph-navigation-arrow text-3xl"></i> Frotcom</div>
-            <div class="flex items-center gap-2 text-xl font-bold font-sans tracking-tight text-gray-800"><i class="ph-fill ph-record text-3xl"></i> Continental VDO</div>
-            <div class="flex items-center gap-2 text-xl font-bold font-sans tracking-tight text-gray-800"><i class="ph-fill ph-plugs-connected text-3xl"></i> IMI RTPD API</div>
-            <div class="flex items-center gap-2 text-xl font-bold font-sans tracking-tight text-gray-800"><i class="ph-fill ph-database text-3xl"></i> TaDa</div>
-        </div>
-    </div>
-</section>
-
-<!-- PROBLEM SECTION -->
-<section id="why-us" class="py-24 bg-gray-900 text-white relative overflow-hidden">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Ерата на ръчните таблици приключи. <span class="text-red-500">Глобите — не.</span></h2>
-            <p class="text-xl text-gray-400">Регулациите в Европа се затягат. Всяка грешка в отчитането на работно време или заплатите представлява риск за бизнеса ви.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
-            <!-- Card 1 -->
-            <div class="col-span-1 md:col-span-2 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 hover:border-red-500/50 transition-colors duration-500 flex flex-col justify-between scroll-reveal group overflow-hidden relative">
-                <div class="absolute right-0 top-0 w-64 h-64 bg-red-500/5 rounded-full blur-3xl group-hover:bg-red-500/10 transition-colors duration-500"></div>
-                <div>
-                    <div class="w-10 h-10 rounded-lg bg-red-500/20 border border-red-400 flex items-center justify-center mb-6 shadow-[0_0_16px_rgba(248,113,113,0.45)]">
-                        <i class="fa-solid fa-satellite-dish text-xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">Дистанционен контрол</h3>
-                    <p class="text-gray-400 text-lg max-w-md">Германската BALM вече сканира дистанционно чрез DSRC. Пътната полиция получава информация за всяко нарушение, без дори да спира пътното превозно средство.</p>
-                </div>
-                <div class="w-full h-1 bg-gray-700 rounded-full overflow-hidden mt-6">
-                    <div id="remote-bar-fill" class="h-full bg-red-500 w-0"></div>
-                </div>
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-10 text-center">
+            <div class="flex flex-col items-center gap-1">
+                <div class="flex items-center gap-2 text-gray-800 font-semibold text-sm"><i class="ph ph-scales text-primary"></i> EU Regulation 2020/1054</div>
+                <div class="text-xs text-gray-400">Mobility Package I</div>
             </div>
-            <!-- Card 2 Counter -->
-            <div class="col-span-1 bg-gradient-to-br from-red-600 to-red-900 rounded-3xl p-8 flex flex-col justify-center items-center text-center shadow-[0_0_40px_rgba(220,38,38,0.2)] scroll-reveal" style="transition-delay:100ms">
-                <p class="text-red-200 font-medium mb-2">Глоба за системни нарушения</p>
-                <div class="text-5xl md:text-6xl font-black text-white drop-shadow-lg mb-2 flex items-center justify-center">
-                    €<span id="fine-counter" data-target="200000">0</span>
-                </div>
-                <p class="text-red-200/80 text-sm">Реален риск за оператора</p>
+            <div class="text-gray-200 text-xl hidden md:block">|</div>
+            <div class="flex flex-col items-center gap-1">
+                <div class="flex items-center gap-2 text-gray-800 font-semibold text-sm"><i class="ph ph-file-text text-primary"></i> Directive 2020/1057</div>
+                <div class="text-xs text-gray-400">Posting of Drivers</div>
             </div>
-            <!-- Card 3 -->
-            <div class="col-span-1 md:col-span-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 hover:border-accent/50 transition-colors duration-500 flex flex-col md:flex-row items-center justify-between gap-8 scroll-reveal group" style="transition-delay:200ms">
-                <div class="flex-1">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-accent text-sm font-bold mb-4">
-                        <i class="ph ph-warning-circle"></i> Законодателна промяна
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">От юли 2026: LCV бусовете влизат в обхвата.</h3>
-                    <p class="text-gray-400 text-lg">Бусовете (между 2.5т и 3.5т) вече ще трябва да използват тахографи и да спазват същите правила за мобилност. Вие готови ли сте?</p>
-                </div>
-                <div class="w-full md:w-1/3 flex justify-center opacity-80 mix-blend-screen overflow-hidden rounded-xl border border-gray-700/50 bg-gray-900">
-                    <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=400&h=200" alt="LCV Van" class="w-full h-full object-cover rounded-xl filter grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
-                </div>
+            <div class="text-gray-200 text-xl hidden md:block">|</div>
+            <div class="flex flex-col items-center gap-1">
+                <div class="flex items-center gap-2 text-gray-800 font-semibold text-sm"><i class="ph ph-plugs-connected text-primary"></i> IMI RTPD API</div>
+                <div class="text-xs text-gray-400">Директна API връзка</div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- THREE FLOWS OVERVIEW -->
-<section id="platform" class="py-24 bg-white relative overflow-hidden scroll-reveal">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Цялостна платформа</span>
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900">Три потока. <span class="text-primary">Едно решение.</span></h2>
-            <p class="text-xl text-gray-500">TachoCross обединява регулаторното съответствие, финансовото възстановяване и управлението на документи в единна платформа.</p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8 mb-12">
-            <!-- Flow 1 -->
-            <div class="rounded-3xl border border-blue-100 bg-gradient-to-b from-blue-50 to-white p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 scroll-reveal">
-                <div class="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center mb-6 shadow-glow">
-                    <i class="ph ph-shield-check text-white text-2xl"></i>
-                </div>
-                <div class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Поток 1</div>
-                <h3 class="text-2xl font-extrabold text-gray-900 mb-4">Регулаторно съответствие</h3>
-                <ul class="space-y-2.5 text-sm text-gray-600 mb-6">
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i> IMI декларации (автоматично)</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i> Чуждестранни заплати (27 държави)</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i> A1 сертификати и ERRU мониторинг</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i> Рисково табло за флота</li>
-                </ul>
-                <div class="bg-primary/8 rounded-xl p-4 border border-primary/10">
-                    <div class="text-2xl font-black text-primary">100%</div>
-                    <div class="text-xs text-gray-500 mt-1">автоматизирано съответствие</div>
-                </div>
+            <div class="text-gray-200 text-xl hidden md:block">|</div>
+            <div class="flex flex-col items-center gap-1">
+                <div class="flex items-center gap-2 text-gray-800 font-semibold text-sm"><i class="ph ph-shield-check text-success"></i> GDPR Съответствие</div>
+                <div class="text-xs text-gray-400">Данните се обработват в ЕС</div>
             </div>
-            <!-- Flow 2 -->
-            <div class="rounded-3xl border border-yellow-100 bg-gradient-to-b from-yellow-50 to-white p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 scroll-reveal" style="transition-delay:100ms">
-                <div class="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-6">
-                    <i class="ph ph-currency-eur text-primary text-2xl"></i>
-                </div>
-                <div class="text-xs font-bold uppercase tracking-widest text-yellow-700 mb-2">Поток 2</div>
-                <h3 class="text-2xl font-extrabold text-gray-900 mb-4">Финансово възстановяване</h3>
-                <ul class="space-y-2.5 text-sm text-gray-600 mb-6">
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-yellow-600"></i> ДДС възстановяване в 28 държави</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-yellow-600"></i> Възстановяване на Акциз (BE/IT/ES/SI/HU/HR/FR)</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-yellow-600"></i> Тол мониторинг и оптимизация</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-yellow-600"></i> Автоматично подаване на искания</li>
-                </ul>
-                <div class="bg-yellow-50 rounded-xl p-4 border border-yellow-100">
-                    <div class="text-2xl font-black text-yellow-700">8–12×</div>
-                    <div class="text-xs text-gray-500 mt-1">средна възвращаемост на инвестицията</div>
-                </div>
-            </div>
-            <!-- Flow 3 -->
-            <div class="rounded-3xl border border-green-100 bg-gradient-to-b from-green-50 to-white p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 scroll-reveal" style="transition-delay:200ms">
-                <div class="w-12 h-12 rounded-2xl bg-success flex items-center justify-center mb-6 shadow-success-glow">
-                    <i class="ph ph-folder-open text-white text-2xl"></i>
-                </div>
-                <div class="text-xs font-bold uppercase tracking-widest text-success mb-2">Поток 3</div>
-                <h3 class="text-2xl font-extrabold text-gray-900 mb-4">Документен Хъб</h3>
-                <ul class="space-y-2.5 text-sm text-gray-600 mb-6">
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-success"></i> e-CMR електронни товарителници</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-success"></i> ЕКМТ разрешителни</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-success"></i> Тахографски архив</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-success"></i> QR код за пътна проверка</li>
-                </ul>
-                <div class="bg-green-50 rounded-xl p-4 border border-green-100">
-                    <div class="text-2xl font-black text-success">Compliance Passport</div>
-                    <div class="text-xs text-gray-500 mt-1">публично верифициран профил</div>
-                </div>
-            </div>
-        </div>
-        <!-- Comparison strip -->
-        <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6 flex flex-col md:flex-row items-center justify-center gap-6 text-center scroll-reveal">
-            <div class="flex-1">
-                <div class="text-xs font-bold uppercase tracking-widest text-red-500 mb-1">Без TachoCross</div>
-                <div class="text-lg font-bold text-gray-700">~700–1 000 €/мес</div>
-                <div class="text-sm text-gray-400">разпределени към 4–6 различни доставчика</div>
-            </div>
-            <div class="text-3xl font-black text-gray-300 hidden md:block">→</div>
-            <div class="flex-1">
-                <div class="text-xs font-bold uppercase tracking-widest text-success mb-1">С TachoCross</div>
-                <div class="text-2xl font-black text-primary">290 €/мес</div>
-                <div class="text-sm text-gray-500 font-medium">всичко обединено на едно място</div>
+            <div class="text-gray-200 text-xl hidden md:block">|</div>
+            <div class="flex flex-col items-center gap-1">
+                <div class="flex items-center gap-2 text-gray-800 font-semibold text-sm"><img src="https://flagcdn.com/w20/eu.png" alt="EU" class="h-4 rounded-sm"> Разработено в ЕС</div>
+                <div class="text-xs text-gray-400">За европейски превозвачи</div>
             </div>
         </div>
     </div>
@@ -344,7 +211,9 @@
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900"><span class="text-primary">Tacho Cross</span> твоят доверен партньор за целия пакет Мобилност</h2>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900">
+                <span class="nav-logo-text-main">Tacho</span><span class="nav-logo-text-accent">Cross</span> твоят доверен партньор за целия пакет Мобилност
+            </h2>
             <p class="text-xl text-gray-500">Автоматизация, която спестява стотици часове администрация на месец.</p>
         </div>
         <div class="flex flex-col lg:flex-row gap-12 items-start">
@@ -376,17 +245,17 @@
                     <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden h-full flex flex-col">
                         <div class="bg-gray-50 border-b border-gray-100 p-4 flex items-center justify-between">
                             <span class="font-semibold text-gray-700">IMI Portal Sync</span>
-                            <div class="flex gap-2"><div class="w-3 h-3 rounded-full bg-red-400"></div><div class="w-3 h-3 rounded-full bg-yellow-400"></div><div class="w-3 h-3 rounded-full bg-green-400"></div></div>
+                            <div class="flex gap-2"><div class="w-3 h-3 rounded-full" style="background-color:var(--color-danger)"></div><div class="w-3 h-3 rounded-full" style="background-color: var(--color-accent)"></div><div class="w-3 h-3 rounded-full" style="background-color:var(--color-success)"></div></div>
                         </div>
                         <div class="p-6 flex-1 bg-gradient-to-b from-white to-gray-50">
                             <div class="space-y-4">
                                 <div class="h-10 bg-gray-100 rounded-lg w-full max-w-md animate-pulse"></div>
-                                <div class="h-10 bg-gray-100 rounded-lg w-full max-w-sm animate-pulse" style="animation-delay:100ms"></div>
-                                <div class="mt-8 bg-green-50 border border-green-200 rounded-xl p-4 flex items-start gap-4">
-                                    <i class="ph-fill ph-check-circle text-green-500 text-2xl mt-1"></i>
+                                <div class="h-10 bg-gray-100 rounded-lg w-full max-w-sm animate-pulse delay-100"></div>
+                                <div class="mt-8 rounded-xl p-4 flex items-start gap-4" style="background-color: var(--color-success-tint-bg); border: 1px solid var(--color-success-border)">
+                                    <i class="ph-fill ph-check-circle text-success text-2xl mt-1"></i>
                                     <div>
-                                        <h4 class="font-bold text-green-800">14 нови декларации са синхронизирани</h4>
-                                        <p class="text-green-600 text-sm mt-1">Всички водачи имат валидни документи за Франция и Германия до 31.12.2026.</p>
+                                        <h4 class="font-bold" style="color: var(--color-success-deep)">14 нови декларации са синхронизирани</h4>
+                                        <p class="text-success text-sm mt-1">Всички водачи имат валидни документи за Франция и Германия до 31.12.2026.</p>
                                     </div>
                                 </div>
                             </div>
@@ -403,7 +272,7 @@
                                 <tbody class="text-gray-700">
                                     <tr class="border-b border-gray-50"><td class="py-3 flex items-center gap-2"><img src="https://flagcdn.com/w20/de.png" class="w-5" alt="DE"> Германия</td><td class="py-3 font-mono">42ч 15м</td><td class="py-3 font-mono">€12.41</td><td class="py-3 font-mono font-semibold text-right">€524.32</td></tr>
                                     <tr class="border-b border-gray-50"><td class="py-3 flex items-center gap-2"><img src="https://flagcdn.com/w20/fr.png" class="w-5" alt="FR"> Франция</td><td class="py-3 font-mono">28ч 30м</td><td class="py-3 font-mono">€11.52</td><td class="py-3 font-mono font-semibold text-right">€328.32</td></tr>
-                                    <tr class="bg-blue-50/50"><td class="py-3 font-bold text-primary" colspan="3">Общо дължими доплащания:</td><td class="py-3 font-mono font-bold text-primary text-right text-lg">€852.64</td></tr>
+                                    <tr style="background-color: var(--color-primary-tint-light)"><td class="py-3 font-bold text-primary" colspan="3">Общо дължими доплащания:</td><td class="py-3 font-mono font-bold text-primary text-right text-lg">€852.64</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -417,12 +286,12 @@
                             <table class="w-full text-left text-sm mb-5">
                                 <thead><tr class="text-gray-500 border-b"><th class="py-2 font-medium">Водач</th><th class="py-2 font-medium">Изтича</th><th class="py-2 font-medium text-right">Статус</th></tr></thead>
                                 <tbody class="text-gray-700">
-                                    <tr class="border-b border-gray-50"><td class="py-3 font-medium">Иван П.</td><td class="py-3 font-mono text-gray-600">15.08.2026</td><td class="py-3 text-right"><span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">Валиден</span></td></tr>
-                                    <tr class="border-b border-gray-50"><td class="py-3 font-medium">Петър М.</td><td class="py-3 font-mono text-gray-600">30.06.2026</td><td class="py-3 text-right"><span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded-full">Скоро изтича</span></td></tr>
-                                    <tr><td class="py-3 font-medium">Стефан Г.</td><td class="py-3 font-mono text-gray-600">01.12.2026</td><td class="py-3 text-right"><span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">Валиден</span></td></tr>
+                                    <tr class="border-b border-gray-50"><td class="py-3 font-medium">Иван П.</td><td class="py-3 font-mono text-gray-600">15.08.2026</td><td class="py-3 text-right"><span class="text-xs font-bold px-2 py-1 rounded-full" style="background-color: var(--color-success-tint-badge); color: var(--color-success)">Валиден</span></td></tr>
+                                    <tr class="border-b border-gray-50"><td class="py-3 font-medium">Петър М.</td><td class="py-3 font-mono text-gray-600">30.06.2026</td><td class="py-3 text-right"><span class="text-xs font-bold px-2 py-1 rounded-full" style="background-color: var(--color-accent-tint-badge); color: var(--color-nav-accent)">Скоро изтича</span></td></tr>
+                                    <tr><td class="py-3 font-medium">Стефан Г.</td><td class="py-3 font-mono text-gray-600">01.12.2026</td><td class="py-3 text-right"><span class="text-xs font-bold px-2 py-1 rounded-full" style="background-color: var(--color-success-tint-badge); color: var(--color-success)">Валиден</span></td></tr>
                                 </tbody>
                             </table>
-                            <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 flex items-center gap-3">
+                            <div class="rounded-xl p-4 flex items-center gap-3" style="background-color: var(--color-primary-tint-light); border: 1px solid var(--color-primary-border-light)">
                                 <i class="ph-fill ph-check-circle text-primary text-2xl"></i>
                                 <div>
                                     <div class="font-bold text-primary text-sm">ERRU статус: OK</div>
@@ -438,15 +307,15 @@
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-5">
                                 <h4 class="font-bold text-gray-800">Рисков скор на флота</h4>
-                                <div class="text-right"><div class="text-3xl font-black text-green-600">87<span class="text-base font-medium text-gray-400">/100</span></div><div class="text-xs text-gray-400">Нисък риск</div></div>
+                                <div class="text-right"><div class="text-3xl font-black text-success">87<span class="text-base font-medium text-gray-400">/100</span></div><div class="text-xs text-gray-400">Нисък риск</div></div>
                             </div>
                             <div class="w-full bg-gray-100 rounded-full h-3 mb-5">
-                                <div class="bg-gradient-to-r from-green-400 to-green-600 h-3 rounded-full" style="width:87%"></div>
+                                <div class="h-3 rounded-full fill-87" style="background: linear-gradient(to right, #3db88a, #026147)"></div>
                             </div>
                             <div class="space-y-3">
-                                <div class="flex items-start gap-3 bg-yellow-50 border border-yellow-100 rounded-xl p-3"><i class="ph ph-warning text-yellow-600 text-xl mt-0.5"></i><div><div class="font-semibold text-yellow-800 text-sm">2 водача наближават 90ч лимита</div><div class="text-xs text-yellow-600">Иван П. — 83ч | Стефан Г. — 87ч тази двуседмица</div></div></div>
-                                <div class="flex items-start gap-3 bg-orange-50 border border-orange-100 rounded-xl p-3"><i class="ph ph-wrench text-orange-600 text-xl mt-0.5"></i><div><div class="font-semibold text-orange-800 text-sm">1 камион — калибриране на тахограф</div><div class="text-xs text-orange-600">CB4567AT — следваща дата: 14.04.2026</div></div></div>
-                                <div class="flex items-start gap-3 bg-green-50 border border-green-100 rounded-xl p-3"><i class="ph-fill ph-check-circle text-green-600 text-xl mt-0.5"></i><div><div class="font-semibold text-green-800 text-sm">Всички IMI и A1 документи: OK</div><div class="text-xs text-green-600">14 активни декларации — без изтекли</div></div></div>
+                                <div class="flex items-start gap-3 rounded-xl p-3" style="background-color: var(--color-accent-tint-bg); border: 1px solid var(--color-accent-border-light)"><i class="ph ph-warning text-xl mt-0.5" style="color: var(--color-nav-accent)"></i><div><div class="font-semibold text-sm" style="color: var(--color-nav-accent)">2 водача наближават 90ч лимита</div><div class="text-xs" style="color: var(--color-accent)">Иван П. — 83ч | Стефан Г. — 87ч тази двуседмица</div></div></div>
+                                <div class="flex items-start gap-3 rounded-xl p-3" style="background-color: var(--color-danger-tint-bg); border: 1px solid var(--color-danger-border)"><i class="ph ph-wrench text-xl mt-0.5" style="color: var(--color-danger)"></i><div><div class="font-semibold text-sm" style="color: var(--color-danger-deep)">1 камион — калибриране на тахограф</div><div class="text-xs" style="color: var(--color-danger)">CB4567AT — следваща дата: 14.04.2026</div></div></div>
+                                <div class="flex items-start gap-3 rounded-xl p-3" style="background-color: var(--color-success-tint-bg); border: 1px solid var(--color-success-border-light)"><i class="ph-fill ph-check-circle text-success text-xl mt-0.5"></i><div><div class="font-semibold text-sm" style="color: var(--color-success-deep)">Всички IMI и A1 документи: OK</div><div class="text-xs text-success">14 активни декларации — без изтекли</div></div></div>
                             </div>
                         </div>
                     </div>
@@ -457,15 +326,15 @@
                         <div class="p-6">
                             <h4 class="font-bold text-gray-800 mb-4 border-b pb-2">Документен Хъб — Иван Петров</h4>
                             <div class="space-y-2 mb-5">
-                                <div class="flex items-center justify-between text-sm border border-gray-100 rounded-lg px-4 py-2.5 hover:bg-gray-50 transition-colors"><span class="flex items-center gap-2 text-gray-700"><i class="ph ph-file-doc text-blue-500"></i> e-CMR #2026-0034</span><span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">Активен</span></div>
-                                <div class="flex items-center justify-between text-sm border border-gray-100 rounded-lg px-4 py-2.5 hover:bg-gray-50 transition-colors"><span class="flex items-center gap-2 text-gray-700"><i class="ph ph-certificate text-primary"></i> A1 Сертификат</span><span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">Валиден до 08.2026</span></div>
-                                <div class="flex items-center justify-between text-sm border border-gray-100 rounded-lg px-4 py-2.5 hover:bg-gray-50 transition-colors"><span class="flex items-center gap-2 text-gray-700"><i class="ph ph-ticket text-green-600"></i> ЕКМТ Разрешително</span><span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">2026 — активно</span></div>
-                                <div class="flex items-center justify-between text-sm border border-gray-100 rounded-lg px-4 py-2.5 hover:bg-gray-50 transition-colors"><span class="flex items-center gap-2 text-gray-700"><i class="ph ph-receipt text-yellow-600"></i> Изравнителен фиш</span><span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-0.5 rounded-full">Март 2026</span></div>
+                                <div class="flex items-center justify-between text-sm border border-gray-100 rounded-lg px-4 py-2.5 hover:bg-gray-50 transition-colors"><span class="flex items-center gap-2 text-gray-700"><i class="ph ph-file-doc text-primary"></i> e-CMR #2026-0034</span><span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background-color: var(--color-success-tint-badge); color: var(--color-success)">Активен</span></div>
+                                <div class="flex items-center justify-between text-sm border border-gray-100 rounded-lg px-4 py-2.5 hover:bg-gray-50 transition-colors"><span class="flex items-center gap-2 text-gray-700"><i class="ph ph-certificate text-primary"></i> A1 Сертификат</span><span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background-color: var(--color-success-tint-badge); color: var(--color-success)">Валиден до 08.2026</span></div>
+                                <div class="flex items-center justify-between text-sm border border-gray-100 rounded-lg px-4 py-2.5 hover:bg-gray-50 transition-colors"><span class="flex items-center gap-2 text-gray-700"><i class="ph ph-ticket text-success"></i> ЕКМТ Разрешително</span><span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background-color: var(--color-success-tint-badge); color: var(--color-success)">2026 — активно</span></div>
+                                <div class="flex items-center justify-between text-sm border border-gray-100 rounded-lg px-4 py-2.5 hover:bg-gray-50 transition-colors"><span class="flex items-center gap-2 text-gray-700"><i class="ph ph-receipt" style="color: var(--color-accent)"></i> Изравнителен фиш</span><span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background-color: var(--color-accent-tint-badge); color: var(--color-nav-accent)">Март 2026</span></div>
                                 <div class="flex items-center justify-between text-sm border border-gray-100 rounded-lg px-4 py-2.5 hover:bg-gray-50 transition-colors"><span class="flex items-center gap-2 text-gray-700"><i class="ph ph-hard-drive text-gray-500"></i> Тахографски архив</span><span class="text-gray-400 text-xs">1.2 GB — 90 дни</span></div>
                             </div>
                             <div class="flex items-center gap-4 bg-gray-50 rounded-xl p-3 border border-gray-100">
                                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=70x70&data=https://tachocross.com/verify/ivan-petrov&color=003399" alt="QR" class="w-16 h-16 rounded-lg">
-                                <div><div class="font-bold text-sm text-gray-800">QR за пътна проверка</div><div class="text-xs text-gray-500">Инспекторът сканира и вижда всичко нужно</div><div class="text-xs text-green-600 font-medium mt-1">Статус: Изряден ✅</div></div>
+                                <div><div class="font-bold text-sm text-gray-800">QR за пътна проверка</div><div class="text-xs text-gray-500">Инспекторът сканира и вижда всичко нужно</div><div class="text-xs text-success font-medium mt-1">Статус: Изряден ✅</div></div>
                             </div>
                         </div>
                     </div>
@@ -475,20 +344,159 @@
     </div>
 </section>
 
+
+<!-- REGULATORY CONTEXT SECTION -->
+<section id="why-us" class="py-24 text-white relative overflow-hidden" style="background: var(--color-regulatory-bg)">
+    <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px); background-size: 22px 22px"></div>
+    <!-- Background glows -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-accent/5 rounded-full blur-[100px]"></div>
+        <div class="absolute -top-32 -right-32 w-[500px] h-[500px] bg-primary-light/20 rounded-full blur-[80px]"></div>
+        <div class="absolute -bottom-20 -left-20 w-[350px] h-[350px] bg-primary/30 rounded-full blur-[70px]"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+            <span class="inline-block bg-white/20 text-on-dark-faint text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4" style="border: 1px solid var(--color-glass-on-dark-border-subtle)">Регулаторна среда</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Европейските регулации се развиват. <span class="text-accent">Ние ви помагаме да сте в крак.</span></h2>
+            <p class="text-xl text-on-dark-muted">Въведоха нови изисквания за отчитане на работно време и заплати. Ние автоматизираме тяхното спазване, за да можете да се фокусирате върху бизнеса си.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+            <!-- Card 1 -->
+            <div class="col-span-1 md:col-span-2 rounded-3xl p-8 flex flex-col justify-between scroll-reveal group overflow-hidden relative transition-all duration-500 hover:scale-[1.01]" style="background: var(--color-glass-on-dark-bg); border: 1px solid var(--color-glass-on-dark-border); backdrop-filter: blur(12px)">
+                <div class="absolute right-0 top-0 w-56 h-56 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-colors duration-500 pointer-events-none"></div>
+                <div>
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-6" style="background: var(--color-glass-on-dark-icon-bg); border: 1px solid var(--color-glass-on-dark-icon-border)">
+                        <i class="fa-solid fa-satellite-dish text-xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Дистанционен контрол в реално време</h3>
+                    <p class="text-on-dark-muted text-lg max-w-md">Германската BALM вече сканира дистанционно чрез DSRC технология. Документацията и декларациите трябва да са актуални — TachoCross се грижи за това автоматично.</p>
+                </div>
+                <div class="w-full h-1.5 rounded-full overflow-hidden mt-6" style="background: var(--color-glass-on-dark-track)">
+                    <div id="remote-bar-fill" class="h-full w-0 rounded-full" style="background: linear-gradient(to right, var(--color-accent), var(--color-nav-accent))"></div>
+                </div>
+            </div>
+            <!-- Card 2 — Fine counter -->
+            <div class="col-span-1 rounded-3xl p-8 flex flex-col justify-center items-center text-center scroll-reveal delay-100 relative overflow-hidden" style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); border: 1px solid var(--color-glass-on-dark-border-subtle)">
+                <p class="text-on-dark-muted font-medium mb-3 text-sm uppercase tracking-wide relative z-10">Максимална глоба за системни нарушения</p>
+                <div class="text-5xl md:text-6xl font-black text-white drop-shadow-lg mb-3 flex items-center justify-center relative z-10">
+                    €<span id="fine-counter" data-target="200000">0</span>
+                </div>
+                <div class="w-10 h-0.5 rounded-full mb-3 relative z-10" style="background: var(--color-accent)"></div>
+                <p class="text-on-dark-muted/80 text-sm relative z-10">Автоматизираното съответствие елиминира риска</p>
+            </div>
+            <!-- Card 3 — LCV -->
+            <div class="col-span-1 md:col-span-3 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 scroll-reveal group delay-200 overflow-hidden relative transition-all duration-500 hover:scale-[1.005]" style="background: var(--color-glass-on-dark-bg); border: 1px solid var(--color-glass-on-dark-border); backdrop-filter: blur(12px)">
+                <div class="flex-1 relative z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-2.5 rounded-full text-sm font-bold mb-5" style="color: #002a73; background: rgba(212, 168, 0, 0.58); border: 1px solid var(--color-accent-border-light)">
+                        <i class="ph ph-calendar-check"></i> Юли 2026 — Законодателна промяна
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">LCV бусовете влизат в обхвата.</h3>
+                    <p class="text-on-dark-muted text-lg max-w-xl">Бусовете между 2.5т и 3.5т вече ще трябва да използват тахографи и да спазват правилата за мобилност. TachoCross поддържа тези превозни средства и ще ви помогне да се подготвите навреме.</p>
+                </div>
+                <div class="w-full md:w-72 rounded-2xl overflow-hidden flex-shrink-0 relative" style="border: 1px solid var(--color-glass-on-dark-border-subtle); height: 190px">
+                    <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=400&h=200" alt="LCV Van" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THREE FLOWS OVERVIEW -->
+<section id="platform" class="py-24 bg-white relative overflow-hidden scroll-reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Цялостна платформа</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900">Три потока. <span class="text-primary">Едно решение.</span></h2>
+            <p class="text-xl text-gray-500">TachoCross обединява регулаторното съответствие, финансовото възстановяване и управлението на документи в единна платформа.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <!-- Flow 1 -->
+            <div class="rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 scroll-reveal" style="border: 1px solid var(--color-primary-border); background: linear-gradient(to bottom, var(--color-primary-tint-light), white)">
+                <div class="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center mb-6 shadow-glow">
+                    <i class="ph ph-shield-check text-white text-2xl"></i>
+                </div>
+                <div class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Поток 1</div>
+                <h3 class="text-2xl font-extrabold text-gray-900 mb-4">Регулаторно съответствие</h3>
+                <ul class="space-y-2.5 text-sm text-gray-600 mb-6">
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i> IMI декларации (автоматично)</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i> Чуждестранни заплати (27 държави)</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i> A1 сертификати и ERRU мониторинг</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i> Рисково табло за флота</li>
+                </ul>
+                <div class="bg-primary/8 rounded-xl p-4 border border-primary/10">
+                    <div class="text-2xl font-black text-primary">100%</div>
+                    <div class="text-xs text-gray-500 mt-1">автоматизирано съответствие</div>
+                </div>
+            </div>
+            <!-- Flow 2 -->
+            <div class="rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 scroll-reveal delay-100" style="border: 1px solid var(--color-accent-border); background: linear-gradient(to bottom, var(--color-accent-tint-bg), white)">
+                <div class="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-6">
+                    <i class="ph ph-currency-eur text-primary text-2xl"></i>
+                </div>
+                <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color: var(--color-nav-accent)">Поток 2</div>
+                <h3 class="text-2xl font-extrabold text-gray-900 mb-4">Финансово възстановяване</h3>
+                <ul class="space-y-2.5 text-sm text-gray-600 mb-6">
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-accent)"></i> ДДС възстановяване в 28 държави</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-accent)"></i> Възстановяване на Акциз (BE/IT/ES/SI/HU/HR/FR)</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-accent)"></i> Тол мониторинг и оптимизация</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-accent)"></i> Автоматично подаване на искания</li>
+                </ul>
+                <div class="rounded-xl p-4" style="background-color: var(--color-accent-tint-bg); border: 1px solid var(--color-accent-border-light)">
+                    <div class="text-2xl font-black" style="color: var(--color-nav-accent)">8–12×</div>
+                    <div class="text-xs text-gray-500 mt-1">средна възвращаемост на инвестицията</div>
+                </div>
+            </div>
+            <!-- Flow 3 -->
+            <div class="rounded-3xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 scroll-reveal delay-200" style="border: 1px solid var(--color-success-border-card); background: linear-gradient(to bottom, var(--color-success-tint-bg), white)">
+                <div class="w-12 h-12 rounded-2xl bg-success flex items-center justify-center mb-6 shadow-success-glow">
+                    <i class="ph ph-folder-open text-white text-2xl"></i>
+                </div>
+                <div class="text-xs font-bold uppercase tracking-widest text-success mb-2">Поток 3</div>
+                <h3 class="text-2xl font-extrabold text-gray-900 mb-4">Документен Хъб</h3>
+                <ul class="space-y-2.5 text-sm text-gray-600 mb-6">
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-success"></i> e-CMR електронни товарителници</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-success"></i> ЕКМТ разрешителни</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-success"></i> Тахографски архив</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-success"></i> QR код за пътна проверка</li>
+                </ul>
+                <div class="rounded-xl p-4" style="background-color: var(--color-success-tint-bg); border: 1px solid var(--color-success-border-light)">
+                    <div class="text-2xl font-black text-success">Compliance Passport</div>
+                    <div class="text-xs text-gray-500 mt-1">публично верифициран профил</div>
+                </div>
+            </div>
+        </div>
+        <!-- Comparison strip -->
+        <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6 flex flex-col md:flex-row items-center justify-center gap-6 text-center scroll-reveal">
+            <div class="flex-1">
+                <div class="text-xs font-bold uppercase tracking-widest text-danger mb-1">Без TachoCross</div>
+                <div class="text-lg font-bold text-gray-700">~700–1 000 €/мес</div>
+                <div class="text-sm text-gray-400">разпределени към 4–6 различни доставчика</div>
+            </div>
+            <div class="text-3xl font-black text-gray-300 hidden md:block">→</div>
+            <div class="flex-1">
+                <div class="text-xs font-bold uppercase tracking-widest text-success mb-1">С TachoCross</div>
+                <div class="text-2xl font-black text-primary">290 €/мес</div>
+                <div class="text-sm text-gray-500 font-medium">всичко обединено на едно място</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <!-- FINANCIAL RECOVERY -->
-<section id="refund" class="py-24 relative overflow-hidden" style="background:#001a4d">
-    <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#e6c319_1px,transparent_1px)] [background-size:24px_24px]"></div>
+<section id="refund" class="py-24 relative overflow-hidden" style="background: var(--color-refund-bg)">
+    <canvas id="refund-particles" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
             <span class="inline-block bg-accent/20 text-accent text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Поток 2 — Финансово Възстановяване</span>
             <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Платформата се самоизплаща.</h2>
-            <p class="text-xl text-blue-200">ДДС и акцизното възстановяване генерира повече, отколкото струва абонаментът.</p>
+            <p class="text-xl text-on-dark-muted">ДДС и акцизното възстановяване генерира повече, отколкото струва абонаментът.</p>
         </div>
         <div class="grid md:grid-cols-3 gap-6 mb-12">
             <div class="glassmorphism-dark rounded-2xl p-7 border border-white/10 hover:border-accent/30 transition-colors duration-300 scroll-reveal">
                 <div class="w-11 h-11 rounded-xl bg-accent/20 flex items-center justify-center mb-5"><i class="ph ph-currency-eur text-accent text-2xl"></i></div>
                 <h3 class="text-xl font-bold text-white mb-2">ДДС Възстановяване</h3>
-                <p class="text-blue-200 text-sm mb-4">Автоматично подаване на искания за ДДС в 28 държави от ЕС и извън него.</p>
+                <p class="text-on-dark-muted text-sm mb-4">Автоматично подаване на искания за ДДС в 28 държави от ЕС и извън него.</p>
                 <div class="flex flex-wrap gap-1.5">
                     <img src="https://flagcdn.com/w20/de.png" class="h-4 rounded-sm" alt="DE">
                     <img src="https://flagcdn.com/w20/fr.png" class="h-4 rounded-sm" alt="FR">
@@ -496,13 +504,13 @@
                     <img src="https://flagcdn.com/w20/at.png" class="h-4 rounded-sm" alt="AT">
                     <img src="https://flagcdn.com/w20/pl.png" class="h-4 rounded-sm" alt="PL">
                     <img src="https://flagcdn.com/w20/cz.png" class="h-4 rounded-sm" alt="CZ">
-                    <span class="text-blue-300 text-xs font-medium">+22 още</span>
+                    <span class="text-on-dark-subtle text-xs font-medium">+22 още</span>
                 </div>
             </div>
             <div class="glassmorphism-dark rounded-2xl p-7 border border-white/10 hover:border-accent/30 transition-colors duration-300 scroll-reveal" style="transition-delay:100ms">
                 <div class="w-11 h-11 rounded-xl bg-accent/20 flex items-center justify-center mb-5"><i class="ph ph-gas-pump text-accent text-2xl"></i></div>
                 <h3 class="text-xl font-bold text-white mb-2">Възстановяване на Акциз</h3>
-                <p class="text-blue-200 text-sm mb-4">Възстановяване на акциз върху горивото в 7 ключови държави за превозвачи.</p>
+                <p class="text-on-dark-muted text-sm mb-4">Възстановяване на акциз върху горивото в 7 ключови държави за превозвачи.</p>
                 <div class="flex flex-wrap gap-1.5">
                     <img src="https://flagcdn.com/w20/be.png" class="h-4 rounded-sm" alt="BE">
                     <img src="https://flagcdn.com/w20/it.png" class="h-4 rounded-sm" alt="IT">
@@ -516,20 +524,20 @@
             <div class="glassmorphism-dark rounded-2xl p-7 border border-white/10 hover:border-accent/30 transition-colors duration-300 scroll-reveal" style="transition-delay:200ms">
                 <div class="w-11 h-11 rounded-xl bg-accent/20 flex items-center justify-center mb-5"><i class="ph ph-road-horizon text-accent text-2xl"></i></div>
                 <h3 class="text-xl font-bold text-white mb-2">Тол Мониторинг</h3>
-                <p class="text-blue-200 text-sm mb-4">Пълна видимост върху тол разходите и автоматично идентифициране на надплатени суми.</p>
+                <p class="text-on-dark-muted text-sm mb-4">Пълна видимост върху тол разходите и автоматично идентифициране на надплатени суми.</p>
                 <div class="text-accent font-bold text-sm">Покрива 32+ тол системи в Европа</div>
             </div>
         </div>
         <div class="max-w-2xl mx-auto glassmorphism-dark rounded-2xl p-8 border border-accent/30 scroll-reveal">
             <div class="text-center mb-6"><div class="text-xs font-bold uppercase tracking-widest text-accent mb-2">ROI Калкулатор</div><div class="text-white font-bold text-lg">При 10 камиона</div></div>
             <div class="space-y-4">
-                <div class="flex items-center justify-between bg-white/5 rounded-xl px-5 py-3"><span class="text-blue-200 text-sm">Абонамент Fleet Pro</span><span class="text-white font-bold font-mono">10 × 29€ = <span class="text-accent">290€/мес</span></span></div>
+                <div class="flex items-center justify-between bg-white/5 rounded-xl px-5 py-3"><span class="text-on-dark-muted text-sm">Абонамент Fleet Pro</span><span class="text-white font-bold font-mono">10 × 29€ = <span class="text-accent">290€/мес</span></span></div>
                 <div class="flex items-center justify-center text-gray-500 text-2xl">↓</div>
-                <div class="flex items-center justify-between bg-white/5 rounded-xl px-5 py-3"><span class="text-blue-200 text-sm">ДДС възстановяване (прогнозно)</span><span class="text-green-400 font-bold font-mono">500 – 1 500€/мес</span></div>
+                <div class="flex items-center justify-between bg-white/5 rounded-xl px-5 py-3"><span class="text-on-dark-muted text-sm">ДДС възстановяване (прогнозно)</span><span class="font-bold font-mono" style="color: var(--color-success-light)">500 – 1 500€/мес</span></div>
                 <div class="flex items-center justify-center text-gray-500 text-2xl">↓</div>
                 <div class="flex items-center justify-between bg-accent/20 border border-accent/40 rounded-xl px-5 py-4"><span class="text-white font-bold">Нетна ROI</span><span class="text-accent font-black text-2xl">8 – 12×</span></div>
             </div>
-            <p class="text-center text-blue-300 text-xs mt-4">Без отчитане на спестеното от глоби и административни разходи</p>
+            <p class="text-center text-on-dark-subtle text-xs mt-4">Без отчитане на спестеното от глоби и административни разходи</p>
         </div>
     </div>
 </section>
@@ -544,19 +552,19 @@
         </div>
         <div class="grid md:grid-cols-3 gap-10 lg:gap-14 relative">
             <div class="hidden md:block absolute top-[40px] left-[10%] w-[80%] h-[3px] bg-gradient-to-r from-primary/10 via-primary/30 to-success/30 -z-10 rounded-full"></div>
-            <div class="bg-white rounded-[2rem] p-10 border border-gray-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] text-center relative scroll-reveal group hover:-translate-y-3 transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,51,153,0.15)]">
+            <div class="bg-white rounded-[2rem] p-10 border border-gray-200 shadow-[0_20px_40px_-15px_var(--shadow-card-base)] text-center relative scroll-reveal group hover:-translate-y-3 transition-all duration-500 hover:shadow-[0_30px_60px_-15px_var(--shadow-card-hover-primary)]">
                 <div class="w-24 h-24 mx-auto bg-primary/5 text-primary rounded-3xl flex items-center justify-center text-4xl mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-glow transform group-hover:scale-110 group-hover:-rotate-3"><i class="ph-fill ph-broadcast"></i></div>
                 <div class="absolute -top-5 -right-5 w-14 h-14 bg-white border-4 border-gray-100 shadow-md rounded-full flex items-center justify-center text-primary font-black text-xl z-10 group-hover:bg-primary group-hover:text-white transition-colors duration-300">1</div>
                 <h3 class="text-2xl font-bold text-text-primary mb-4">Свържи автопарка</h3>
                 <p class="text-text-secondary text-lg leading-relaxed">Бърза интеграция с вашия GPS или доставчик на тахографски данни (Tollpass, Frotcom, VDO и др.).</p>
             </div>
-            <div class="bg-white rounded-[2rem] p-10 border border-gray-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] text-center relative scroll-reveal group hover:-translate-y-3 transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,51,153,0.15)]" style="animation-delay:0.15s">
+            <div class="bg-white rounded-[2rem] p-10 border border-gray-200 shadow-[0_20px_40px_-15px_var(--shadow-card-base)] text-center relative scroll-reveal group hover:-translate-y-3 transition-all duration-500 hover:shadow-[0_30px_60px_-15px_var(--shadow-card-hover-primary)] delay-150">
                 <div class="w-24 h-24 mx-auto bg-primary/5 text-primary rounded-3xl flex items-center justify-center text-4xl mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-glow transform group-hover:scale-110 group-hover:rotate-3"><i class="ph-fill ph-cpu"></i></div>
                 <div class="absolute -top-5 -right-5 w-14 h-14 bg-white border-4 border-gray-100 shadow-md rounded-full flex items-center justify-center text-primary font-black text-xl z-10 group-hover:bg-primary group-hover:text-white transition-colors duration-300">2</div>
                 <h3 class="text-2xl font-bold text-text-primary mb-4">Алгоритъмът мисли</h3>
                 <p class="text-text-secondary text-lg leading-relaxed">Автоматично засича граници, различава транзит от кроструд и прилага точната локална часова ставка.</p>
             </div>
-            <div class="bg-white rounded-[2rem] p-10 border border-gray-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] text-center relative scroll-reveal group hover:-translate-y-3 transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(5,150,105,0.15)]" style="animation-delay:0.3s">
+            <div class="bg-white rounded-[2rem] p-10 border border-gray-200 shadow-[0_20px_40px_-15px_var(--shadow-card-base)] text-center relative scroll-reveal group hover:-translate-y-3 transition-all duration-500 hover:shadow-[0_30px_60px_-15px_var(--shadow-card-hover-success)] delay-300">
                 <div class="w-24 h-24 mx-auto bg-success/10 text-success rounded-3xl flex items-center justify-center text-4xl mb-8 group-hover:bg-success group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-success-glow transform group-hover:scale-110 group-hover:-rotate-3"><i class="ph-fill ph-shield-check"></i></div>
                 <div class="absolute -top-5 -right-5 w-14 h-14 bg-white border-4 border-gray-100 shadow-md rounded-full flex items-center justify-center text-success font-black text-xl z-10 group-hover:bg-success group-hover:text-white transition-colors duration-300">3</div>
                 <h3 class="text-2xl font-bold text-text-primary mb-4">Бъди 100% легитимен</h3>
@@ -566,67 +574,9 @@
     </div>
 </section>
 
-<!-- COMPLIANCE PASSPORT -->
-<section id="passport" class="py-24 bg-gradient-to-br from-blue-50 to-primary-light/10 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#003399_1px,transparent_1px)] [background-size:20px_20px]"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
-            <span class="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Поток 3 — Документен Хъб</span>
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">Бъдете видими за Запада. <span class="text-primary">Печелете по-добри товари.</span></h2>
-            <p class="text-xl text-gray-600">TachoCross свързва верифицирани превозвачи с товародатели — двустранен пазар с мрежов ефект.</p>
-        </div>
-        <div class="grid lg:grid-cols-2 gap-12 mb-12">
-            <div class="bg-white rounded-3xl p-8 shadow-lg border border-blue-100 scroll-reveal">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center"><i class="ph ph-truck text-primary text-xl"></i></div>
-                    <div><div class="text-xs font-bold uppercase tracking-widest text-primary">За превозвачи</div><div class="font-bold text-gray-900">Compliance Passport</div></div>
-                </div>
-                <p class="text-gray-600 mb-6 text-sm">Всеки абонат получава публичен Compliance Passport — верифициран профил, достъпен за западни товародатели в реално време.</p>
-                <ul class="space-y-3 mb-6">
-                    <li class="flex items-center gap-3 text-gray-700 font-medium text-sm"><div class="w-5 h-5 rounded-full bg-accent flex items-center justify-center text-primary flex-shrink-0"><i class="ph ph-check text-[0.7rem]"></i></div> Публичен линк към профила на фирмата ви</li>
-                    <li class="flex items-center gap-3 text-gray-700 font-medium text-sm"><div class="w-5 h-5 rounded-full bg-accent flex items-center justify-center text-primary flex-shrink-0"><i class="ph ph-check text-[0.7rem]"></i></div> Показва само статуси — без чувствителни данни</li>
-                    <li class="flex items-center gap-3 text-gray-700 font-medium text-sm"><div class="w-5 h-5 rounded-full bg-accent flex items-center justify-center text-primary flex-shrink-0"><i class="ph ph-check text-[0.7rem]"></i></div> Повишава доверието при търгове и контракти</li>
-                    <li class="flex items-center gap-3 text-gray-700 font-medium text-sm"><div class="w-5 h-5 rounded-full bg-accent flex items-center justify-center text-primary flex-shrink-0"><i class="ph ph-check text-[0.7rem]"></i></div> Включен в плановете Compliance и Fleet Pro</li>
-                </ul>
-                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100">
-                    <div class="flex justify-between items-start mb-3">
-                        <div><h3 class="font-extrabold text-lg text-gray-900">TachoCross</h3><p class="text-xs text-gray-500 uppercase tracking-widest">Паспорт за съответствие</p></div>
-                        <div class="w-12 h-12 rounded-full border-2 border-green-500 flex items-center justify-center bg-green-50"><i class="ph-fill ph-check-circle text-green-600 text-xl"></i></div>
-                    </div>
-                    <div class="bg-white rounded-xl p-3 mb-3 border border-gray-100"><p class="text-xs text-gray-500 mb-0.5">Компания</p><p class="font-bold text-gray-900">Транс Логистик ЕООД</p><p class="text-xs font-mono text-gray-500">VAT: BG123456789</p></div>
-                    <div class="flex justify-between text-xs"><div><p class="text-gray-400">Mobility Package I</p><p class="text-green-600 font-bold">Изряден ✅</p></div><div class="text-right"><p class="text-gray-400">Актуализация</p><p class="font-bold text-gray-700">Днес, 08:30</p></div></div>
-                    <div class="mt-4 pt-3 border-t border-dashed border-gray-200 flex justify-between items-center">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&data=https://tachocross.com/&color=374151" alt="QR" class="w-12 h-12 rounded-lg opacity-80">
-                        <button class="text-primary font-semibold text-xs hover:underline">Виж пълния доклад &rarr;</button>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-3xl p-8 shadow-lg border border-yellow-100 scroll-reveal" style="transition-delay:150ms">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center"><i class="ph ph-buildings text-yellow-700 text-xl"></i></div>
-                    <div><div class="text-xs font-bold uppercase tracking-widest text-yellow-700">За товародатели</div><div class="font-bold text-gray-900">Намерете верифицирани превозвачи</div></div>
-                </div>
-                <p class="text-gray-600 mb-6 text-sm">Западноевропейски спедитори и директни клиенти плащат 99€/месец за достъп до база от верифицирани, изрядни превозвачи отИзточна Европа.</p>
-                <div class="bg-yellow-50 rounded-2xl p-5 border border-yellow-100 mb-6">
-                    <div class="text-2xl font-black text-yellow-700 mb-1">99€<span class="text-base font-medium text-gray-500">/месец</span></div>
-                    <div class="text-sm text-gray-600">За достъп до верифицираната мрежа от превозвачи</div>
-                </div>
-                <ul class="space-y-3 mb-6">
-                    <li class="flex items-center gap-3 text-gray-700 font-medium text-sm"><div class="w-5 h-5 rounded-full bg-yellow-200 flex items-center justify-center flex-shrink-0"><i class="ph ph-check text-yellow-800 text-[0.7rem]"></i></div> Реален статус на съответствие в реално време</li>
-                    <li class="flex items-center gap-3 text-gray-700 font-medium text-sm"><div class="w-5 h-5 rounded-full bg-yellow-200 flex items-center justify-center flex-shrink-0"><i class="ph ph-check text-yellow-800 text-[0.7rem]"></i></div> Намалява риска от санкции при одит на веригата</li>
-                    <li class="flex items-center gap-3 text-gray-700 font-medium text-sm"><div class="w-5 h-5 rounded-full bg-yellow-200 flex items-center justify-center flex-shrink-0"><i class="ph ph-check text-yellow-800 text-[0.7rem]"></i></div> Директен контакт с превозвача</li>
-                </ul>
-            </div>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border border-gray-200 text-center shadow-sm scroll-reveal">
-            <div class="flex items-center justify-center gap-3 mb-3"><i class="ph-fill ph-share-network text-primary text-2xl"></i><span class="font-bold text-gray-900 text-lg">Мрежовият ефект</span></div>
-            <p class="text-gray-600 max-w-2xl mx-auto text-sm">Колкото повече превозвачи са верифицирани в TachoCross, толкова по-атрактивна е платформата за товародатели. Колкото повече товародатели се присъединят, толкова повече стойност получават превозвачите — класически двустранен мрежов ефект.</p>
-        </div>
-    </div>
-</section>
-
 <!-- FOR ACCOUNTANTS -->
-<section id="accountants" class="py-24 bg-gray-50 relative overflow-hidden">
+<section id="accountants" class="py-24 relative overflow-hidden" style="background: linear-gradient(to bottom right, var(--color-primary-tint-light), var(--color-primary-light-tint))">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:20px_20px]"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="scroll-reveal">
@@ -634,23 +584,23 @@
                 <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900">За счетоводителите и транспортните консултанти.</h2>
                 <p class="text-xl text-gray-600 mb-8 leading-relaxed">Управлявайте до 20 клиентски флота от един акаунт за фиксирана месечна цена. Автоматизирайте съответствието за клиентите си и запазете своя марж.</p>
                 <ul class="space-y-4 mb-8">
-                    <li class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-accent flex items-center justify-center text-primary mt-0.5 flex-shrink-0"><i class="ph ph-check text-[0.9rem]"></i></div><div><div class="font-semibold text-gray-900">До 20 клиентски флота</div><div class="text-gray-500 text-sm">Управление от единно табло — без отделни акаунти</div></div></li>
-                    <li class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-accent flex items-center justify-center text-primary mt-0.5 flex-shrink-0"><i class="ph ph-check text-[0.9rem]"></i></div><div><div class="font-semibold text-gray-900">Автоматизация на back-office</div><div class="text-gray-500 text-sm">IMI декларации, изравнителни фишове и A1 — без ръчен труд</div></div></li>
-                    <li class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-accent flex items-center justify-center text-primary mt-0.5 flex-shrink-0"><i class="ph ph-check text-[0.9rem]"></i></div><div><div class="font-semibold text-gray-900">White-label опция</div><div class="text-gray-500 text-sm">Представете платформата под вашата марка пред клиентите</div></div></li>
-                    <li class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-accent flex items-center justify-center text-primary mt-0.5 flex-shrink-0"><i class="ph ph-check text-[0.9rem]"></i></div><div><div class="font-semibold text-gray-900">Фиксирана цена</div><div class="text-gray-500 text-sm">49€/месец — без значение колко камиона имат клиентите ви</div></div></li>
+                    <li class="flex items-start gap-3"><div class="w-6 h-6 rounded-full flex items-center justify-center text-white mt-0.5 flex-shrink-0" style="background-color: var(--color-success)"><i class="ph ph-check text-[0.9rem]"></i></div><div><div class="font-semibold text-gray-900">До 20 клиентски флота</div><div class="text-gray-500 text-sm">Управление от единно табло — без отделни акаунти</div></div></li>
+                    <li class="flex items-start gap-3"><div class="w-6 h-6 rounded-full flex items-center justify-center text-white mt-0.5 flex-shrink-0" style="background-color: var(--color-success)"><i class="ph ph-check text-[0.9rem]"></i></div><div><div class="font-semibold text-gray-900">Автоматизация на back-office</div><div class="text-gray-500 text-sm">IMI декларации, изравнителни фишове и A1 — без ръчен труд</div></div></li>
+                    <li class="flex items-start gap-3"><div class="w-6 h-6 rounded-full flex items-center justify-center text-white mt-0.5 flex-shrink-0" style="background-color: var(--color-success)"><i class="ph ph-check text-[0.9rem]"></i></div><div><div class="font-semibold text-gray-900">White-label опция</div><div class="text-gray-500 text-sm">Представете платформата под вашата марка пред клиентите</div></div></li>
+                    <li class="flex items-start gap-3"><div class="w-6 h-6 rounded-full flex items-center justify-center text-white mt-0.5 flex-shrink-0" style="background-color: var(--color-success)"><i class="ph ph-check text-[0.9rem]"></i></div><div><div class="font-semibold text-gray-900">Фиксирана цена</div><div class="text-gray-500 text-sm">49€/месец — без значение колко камиона имат клиентите ви</div></div></li>
                 </ul>
                 <a href="#early-access" class="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-4 rounded-xl hover:bg-primary-light transition-colors shadow-glow">Свържи се с нас <i class="ph ph-arrow-right"></i></a>
             </div>
-            <div class="scroll-reveal" style="transition-delay:150ms">
+            <div class="scroll-reveal delay-150">
                 <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-200">
                     <div class="flex items-center justify-between mb-6 border-b pb-4">
                         <div class="font-bold text-gray-900">Счетоводно табло</div>
-                        <span class="text-xs bg-green-100 text-green-700 font-bold px-3 py-1 rounded-full">3 активни клиента</span>
+                        <span class="text-xs font-bold px-3 py-1 rounded-full" style="background-color: var(--color-success-tint-badge); color: var(--color-success)">3 активни клиента</span>
                     </div>
                     <div class="space-y-3">
-                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100"><div><div class="font-semibold text-gray-800 text-sm">Транс Логистик ЕООД</div><div class="text-xs text-gray-400">12 камиона</div></div><span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">Изряден</span></div>
-                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100"><div><div class="font-semibold text-gray-800 text-sm">БГ Карго ООД</div><div class="text-xs text-gray-400">7 камиона</div></div><span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded-full">1 предупреждение</span></div>
-                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100"><div><div class="font-semibold text-gray-800 text-sm">Евро Транспорт АД</div><div class="text-xs text-gray-400">23 камиона</div></div><span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">Изряден</span></div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100"><div><div class="font-semibold text-gray-800 text-sm">Транс Логистик ЕООД</div><div class="text-xs text-gray-400">12 камиона</div></div><span class="text-xs font-bold px-2 py-1 rounded-full" style="background-color: var(--color-success-tint-badge); color: var(--color-success)">Изряден</span></div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100"><div><div class="font-semibold text-gray-800 text-sm">БГ Карго ООД</div><div class="text-xs text-gray-400">7 камиона</div></div><span class="text-xs font-bold px-2 py-1 rounded-full" style="background-color: var(--color-accent-tint-badge); color: var(--color-nav-accent)">1 предупреждение</span></div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100"><div><div class="font-semibold text-gray-800 text-sm">Евро Транспорт АД</div><div class="text-xs text-gray-400">23 камиона</div></div><span class="text-xs font-bold px-2 py-1 rounded-full" style="background-color: var(--color-success-tint-badge); color: var(--color-success)">Изряден</span></div>
                     </div>
                     <div class="mt-6 pt-5 border-t border-dashed border-gray-200">
                         <div class="flex justify-between items-center"><div class="text-sm text-gray-500">Ваш абонамент</div><div class="text-2xl font-black text-primary">49€<span class="text-sm font-medium text-gray-400">/мес</span></div></div>
@@ -676,9 +626,9 @@
                 <div class="mb-5"><h3 class="text-xl font-bold text-gray-900 mb-1">Старт</h3><p class="text-gray-500 text-sm">За малки флоти, базова автоматизация.</p></div>
                 <div class="mb-6"><span class="text-4xl font-black text-gray-900">9€</span><span class="text-gray-500 text-sm">/камион/мес</span></div>
                 <ul class="space-y-3 mb-8 text-sm text-gray-600 flex-1">
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Автоматични IMI декларации</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> QR код за пътна проверка</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Напомняния и дедлайни</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> Автоматични IMI декларации</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> QR код за пътна проверка</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> Напомняния и дедлайни</li>
                     <li class="flex items-center gap-2 text-gray-300"><i class="ph ph-x"></i> Чуждестранни заплати</li>
                     <li class="flex items-center gap-2 text-gray-300"><i class="ph ph-x"></i> Compliance Passport</li>
                     <li class="flex items-center gap-2 text-gray-300"><i class="ph ph-x"></i> ДДС / акциз възстановяване</li>
@@ -686,51 +636,51 @@
                 <a href="#early-access" class="block text-center w-full py-3 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-colors">Запиши се</a>
             </div>
 
-            <!-- Plan 2: Compliance (highlighted) -->
-            <div class="bg-primary rounded-3xl p-7 border border-primary-light shadow-2xl relative scroll-reveal flex flex-col" style="transition-delay:100ms">
-                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"><span class="bg-accent text-primary text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow-md">Най-популярен</span></div>
-                <div class="mb-5"><h3 class="text-xl font-bold text-white mb-1">Compliance</h3><p class="text-blue-200 text-sm">Пълният пакет за пълно спокойствие.</p></div>
-                <div class="mb-6"><span class="text-5xl font-black text-white">19€</span><span class="text-blue-200 text-sm">/камион/мес</span></div>
-                <ul class="space-y-3 mb-8 text-sm text-blue-50 flex-1">
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Автоматични IMI декларации</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Чуждестранни заплати (27 дър.)</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> A1 управление + ERRU</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Рисково табло</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Compliance Passport</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> QR пътна проверка</li>
-                    <li class="flex items-center gap-2 text-blue-300"><i class="ph ph-x"></i> ДДС / акциз възстановяване</li>
-                </ul>
-                <a href="#early-access" class="block text-center w-full py-3 rounded-xl bg-accent text-primary font-extrabold hover:shadow-[0_0_15px_rgba(245,208,12,0.6)] transform hover:-translate-y-0.5 transition-all">Запиши се</a>
-            </div>
-
-            <!-- Plan 3: Fleet Pro -->
-            <div class="bg-white rounded-3xl p-7 border-2 border-primary/20 shadow-md hover:shadow-xl transition-shadow scroll-reveal flex flex-col" style="transition-delay:200ms">
-                <div class="mb-4"><h3 class="text-xl font-bold text-gray-900 mb-1">Fleet Pro</h3><p class="text-gray-500 text-sm">Пълното решение + финансово възстановяване.</p></div>
-                <div class="mb-1"><span class="text-4xl font-black text-gray-900">29€</span><span class="text-gray-500 text-sm">/камион/мес</span></div>
-                <div class="text-xs text-gray-400 mb-3">25€/камион при 30+ камиона</div>
-                <div class="bg-green-50 rounded-xl px-3 py-2 text-xs text-green-700 font-semibold border border-green-100 mb-5 flex items-center gap-2"><i class="ph ph-trend-up text-green-600"></i> Самоизплаща се от ДДС възстановяването</div>
+            <!-- Plan 2: Compliance -->
+            <div class="bg-white rounded-3xl p-7 border-2 border-primary/20 shadow-md hover:shadow-xl transition-shadow scroll-reveal flex flex-col delay-100">
+                <div class="mb-5"><h3 class="text-xl font-bold text-gray-900 mb-1">Compliance</h3><p class="text-gray-500 text-sm">Пълният пакет за пълно спокойствие.</p></div>
+                <div class="mb-6"><span class="text-4xl font-black text-gray-900">19€</span><span class="text-gray-500 text-sm">/камион/мес</span></div>
                 <ul class="space-y-3 mb-8 text-sm text-gray-600 flex-1">
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Всичко от Compliance</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> ДДС възстановяване (28 държави)</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Възстановяване на Акциз  (7 държави)</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Тол мониторинг</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Документен Хъб + e-CMR</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> ERP API интеграция</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Приоритетна поддръжка</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> Автоматични IMI декларации</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> Чуждестранни заплати (27 дър.)</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> A1 управление + ERRU</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> Рисково табло</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> Compliance Passport</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> QR пътна проверка</li>
+                    <li class="flex items-center gap-2 text-gray-300"><i class="ph ph-x"></i> ДДС / акциз възстановяване</li>
                 </ul>
                 <a href="#early-access" class="block text-center w-full py-3 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-colors">Запиши се</a>
             </div>
 
+            <!-- Plan 3: Fleet Pro (highlighted) -->
+            <div class="bg-primary rounded-3xl p-7 border border-primary-light shadow-2xl relative scroll-reveal flex flex-col delay-200">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"><span class="bg-accent text-primary text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow-md">Най-популярен</span></div>
+                <div class="mb-4"><h3 class="text-xl font-bold text-white mb-1">Fleet Pro</h3><p class="text-on-dark-muted text-sm">Пълното решение + финансово възстановяване.</p></div>
+                <div class="mb-1"><span class="text-5xl font-black text-white">29€</span><span class="text-on-dark-muted text-sm">/камион/мес</span></div>
+                <div class="text-xs text-on-dark-muted mb-3">25€/камион при 30+ камиона</div>
+                <div class="rounded-xl px-3 py-1 text-xs font-semibold mb-5 flex items-center gap-2" style="background-color: var(--color-success-border-light); border: 1px solid var(--color-success-border-strong); color: var(--color-success-light)"><i class="ph ph-trend-up"></i> Самоизплаща се от ДДС възстановяването</div>
+                <ul class="space-y-3 mb-8 text-sm text-on-dark-faint flex-1">
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success-light)"></i> Всичко от Compliance</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success-light)"></i> ДДС възстановяване (28 държави)</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success-light)"></i> Възстановяване на Акциз  (7 държави)</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success-light)"></i> Тол мониторинг</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success-light)"></i> Документен Хъб + e-CMR</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success-light)"></i> ERP API интеграция</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success-light)"></i> Приоритетна поддръжка</li>
+                </ul>
+                <a href="#early-access" class="block text-center w-full py-3 rounded-xl bg-accent text-primary font-extrabold hover:shadow-[0_0_15px_var(--shadow-accent-btn-hover)] transform hover:-translate-y-0.5 transition-all">Запиши се</a>
+            </div>
+
             <!-- Plan 4: Accountant -->
-            <div class="bg-white rounded-3xl p-7 border border-gray-200 shadow-md hover:shadow-xl transition-shadow scroll-reveal flex flex-col" style="transition-delay:300ms">
+            <div class="bg-white rounded-3xl p-7 border border-gray-200 shadow-md hover:shadow-xl transition-shadow scroll-reveal flex flex-col delay-300">
                 <div class="mb-5"><div class="text-xs font-bold uppercase tracking-widest text-primary mb-1">B2B2B</div><h3 class="text-xl font-bold text-gray-900 mb-1">Счетоводител</h3><p class="text-gray-500 text-sm">За счетоводни кантори и консултанти.</p></div>
                 <div class="mb-1"><span class="text-4xl font-black text-gray-900">49€</span><span class="text-gray-500 text-sm">/месец</span></div>
                 <div class="text-xs text-gray-400 mb-6">Фиксиран — не е на камион</div>
                 <ul class="space-y-3 mb-8 text-sm text-gray-600 flex-1">
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> До 20 клиентски флота</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Единно управленско табло</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Автоматизиран back-office</li>
-                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> White-label опция</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> До 20 клиентски флота</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> Единно управленско табло</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> Автоматизиран back-office</li>
+                    <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle" style="color: var(--color-success)"></i> White-label опция</li>
                     <li class="flex items-center gap-2 text-gray-300"><i class="ph ph-x"></i> ДДС / акциз възстановяване</li>
                 </ul>
                 <a href="#early-access" class="block text-center w-full py-3 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-colors">Свържи се с нас</a>
@@ -740,37 +690,19 @@
     </div>
 </section>
 
-<!-- TRUST BAR -->
-<section class="py-10 bg-white border-y border-gray-100 scroll-reveal">
+<!-- SOCIAL PROOF BAR -->
+<section class="py-8 bg-white border-y border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-10 text-center">
-            <div class="flex flex-col items-center gap-1">
-                <div class="flex items-center gap-2 text-gray-800 font-semibold text-sm"><i class="ph ph-scales text-primary"></i> EU Regulation 2020/1054</div>
-                <div class="text-xs text-gray-400">Mobility Package I</div>
-            </div>
-            <div class="text-gray-200 text-xl hidden md:block">|</div>
-            <div class="flex flex-col items-center gap-1">
-                <div class="flex items-center gap-2 text-gray-800 font-semibold text-sm"><i class="ph ph-file-text text-primary"></i> Directive 2020/1057</div>
-                <div class="text-xs text-gray-400">Posting of Drivers</div>
-            </div>
-            <div class="text-gray-200 text-xl hidden md:block">|</div>
-            <div class="flex flex-col items-center gap-1">
-                <div class="flex items-center gap-2 text-gray-800 font-semibold text-sm"><i class="ph ph-plugs-connected text-primary"></i> IMI RTPD API</div>
-                <div class="text-xs text-gray-400">Директна API връзка</div>
-            </div>
-            <div class="text-gray-200 text-xl hidden md:block">|</div>
-            <div class="flex flex-col items-center gap-1">
-                <div class="flex items-center gap-2 text-gray-800 font-semibold text-sm"><i class="ph ph-shield-check text-green-600"></i> GDPR Съответствие</div>
-                <div class="text-xs text-gray-400">Данните се обработват в ЕС</div>
-            </div>
-            <div class="text-gray-200 text-xl hidden md:block">|</div>
-            <div class="flex flex-col items-center gap-1">
-                <div class="flex items-center gap-2 text-gray-800 font-semibold text-sm"><img src="https://flagcdn.com/w20/eu.png" alt="EU" class="h-4 rounded-sm"> Разработено в ЕС</div>
-                <div class="text-xs text-gray-400">За европейски превозвачи</div>
-            </div>
+        <p class="text-center text-sm font-semibold text-gray-500 uppercase tracking-widest mb-6">Интегрира се безпроблемно с вашите настоящи системи:</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            <div class="flex items-center gap-2 text-xl font-bold font-sans tracking-tight text-gray-800"><i class="ph-fill ph-navigation-arrow text-3xl"></i> Frotcom</div>
+            <div class="flex items-center gap-2 text-xl font-bold font-sans tracking-tight text-gray-800"><i class="ph-fill ph-record text-3xl"></i> Continental VDO</div>
+            <div class="flex items-center gap-2 text-xl font-bold font-sans tracking-tight text-gray-800"><i class="ph-fill ph-plugs-connected text-3xl"></i> IMI RTPD API</div>
+            <div class="flex items-center gap-2 text-xl font-bold font-sans tracking-tight text-gray-800"><i class="ph-fill ph-database text-3xl"></i> TaDa</div>
         </div>
     </div>
 </section>
+
 
 <!-- FINAL CTA -->
 <section id="early-access" class="py-32 bg-section-muted relative overflow-hidden">
@@ -790,7 +722,7 @@
                 <div class="flex flex-col md:flex-row gap-4">
                     <label for="cta-email" class="sr-only">Служебен имейл</label>
                     <input id="cta-email" type="email" required placeholder="Въведете служебен имейл" class="w-full pl-6 pr-6 py-5 rounded-2xl text-text-primary bg-surface focus:outline-none border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all text-xl font-medium shadow-inner placeholder-gray-400">
-                    <button type="submit" class="bg-primary text-white px-10 py-5 rounded-2xl font-bold hover:bg-primary-light transition-all shadow-[0_10px_20px_rgba(0,51,153,0.3)] hover:shadow-[0_15px_30px_rgba(0,51,153,0.4)] hover:-translate-y-1 transform whitespace-nowrap text-xl">Запази достъп</button>
+                    <button type="submit" class="bg-primary text-white px-10 py-5 rounded-2xl font-bold hover:bg-primary-light transition-all shadow-[0_10px_20px_rgba(0,42,115,0.3)] hover:shadow-[0_15px_30px_rgba(0,42,115,0.4)] hover:-translate-y-1 transform whitespace-nowrap text-xl">Запази достъп</button>
                 </div>
             </form>
             <div id="success-msg" class="hidden mt-6 bg-success/10 text-success p-4 rounded-xl font-bold border border-success/20 animate-fade-in flex items-center justify-center gap-2 text-lg">
@@ -804,7 +736,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8 text-gray-400 text-sm">
+<footer class="bg-dark-section border-t border-gray-800 pt-16 pb-8 text-gray-400 text-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12 border-b border-gray-800 pb-12">
             <div class="col-span-1">
@@ -829,7 +761,7 @@
                     <li><a href="#product" class="hover:text-accent transition-colors">Рисково Табло</a></li>
                     <li><a href="#product" class="hover:text-accent transition-colors">Документен Хъб</a></li>
                     <li><a href="#refund" class="hover:text-accent transition-colors">ДДС възстановяване</a></li>
-                    <li><a href="#passport" class="hover:text-accent transition-colors">Compliance Passport</a></li>
+                    <li><a href="#product" class="hover:text-accent transition-colors">Compliance Passport</a></li>
                     <li><a href="#pricing" class="hover:text-accent transition-colors">Цени</a></li>
                 </ul>
             </div>
@@ -837,7 +769,7 @@
                 <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">За бизнеса</h4>
                 <ul class="space-y-2.5">
                     <li><a href="#accountants" class="hover:text-accent transition-colors">Счетоводители</a></li>
-                    <li><a href="#passport" class="hover:text-accent transition-colors">Товародатели</a></li>
+                    <li><a href="#product" class="hover:text-accent transition-colors">Товародатели</a></li>
                     <li><a href="#" class="hover:text-accent transition-colors">API интеграции</a></li>
                     <li><a href="#" class="hover:text-accent transition-colors">White-label</a></li>
                 </ul>
